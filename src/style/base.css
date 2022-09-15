@@ -1,0 +1,64 @@
+html {
+  height: 100%;
+  font-size: 750px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff;
+  overflow-x: auto;
+  overflow-y: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-weight: 400;
+  font-family: PingFangSC-Regular, SourceHanSansRegularBySecretbase,Microsoft YaHei, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+img {
+  border-width: 0;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+input, textarea {
+  outline: none;
+}
+
+input.active, textarea.active, button:active, button:visited {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+a, button, input {
+  /*  去除点击高亮*/
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+
+@media screen and (max-width: 768px) {
+  html {
+    height: 100%;
+    font-size: 26.667vw;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
