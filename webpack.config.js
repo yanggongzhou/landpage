@@ -19,7 +19,7 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(j|t)s$/,
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),
                 use: 'babel-loader',
@@ -36,12 +36,15 @@ const config = {
                 ]
 
             },
-            {
-                test: /\.html$/i,
-                use: {
-                    loader: "html-loader",
-                }
-            },
+            // {
+            //     test: /\.html$/i,
+            //     use: {
+            //         loader: "html-loader",
+            //         options: {
+            //             minimize: false,
+            //         }
+            //     }
+            // },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 type: 'asset',
@@ -64,12 +67,14 @@ const config = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: `css/[name].css`,
+        }),
         ...plugins,
     ],
-    externals: {
-        'jquery': 'window.jQuery'
-    },
+    // externals: {
+    //     'jquery': 'window.jQuery'
+    // },
     optimization: {
         splitChunks: {
             cacheGroups: {

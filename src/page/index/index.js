@@ -1,5 +1,6 @@
 import '../../style/base.css';
 import './index.scss';
+import './app.config';
 import {
     sendToApp,
     getLocationParams
@@ -40,11 +41,11 @@ class Index {
 }
 
 
-$(document).ready(function () {
-    const params = getLocationParams();
-    let token = '';
-    if (params && params.token) {
-        token = params.token;
-    }
-    new Index(token).init();
-});
+window.onload = function () {
+  const params = getLocationParams();
+  let token = '';
+  if (params && params.token) {
+    token = params.token;
+  }
+  new Index(token).init();
+};

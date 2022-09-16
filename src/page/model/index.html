@@ -9,264 +9,15 @@
   <title></title>
 <!--  <link rel="shortcut icon" type="image/x-icon" href="./favicon{{land_info.product_distinguish_num}}.ico">-->
 <!-- fb脚本动态注入 -->
-  {{land_info.facebook_javascript}} 
-<!-- 移动端适配 -->
-<script>
-  (function (doc, win) {
-    var docEl = doc.documentElement,
-      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-      recalc = function () {
-        var clientWidth = docEl.clientWidth;
-        if (!clientWidth) return;
-        docEl.style.fontSize = 100 * (clientWidth / 720) + 'px';
-      };
-    recalc();
-    if (!doc.addEventListener) return;
-    win.addEventListener(resizeEvt, recalc, false);
-    doc.addEventListener('DOMContentLoaded', recalc, false);
-  })(document, window);
-</script>
-<!-- css样式 -->
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  html,
-  body {
-    width: 100%;
-    padding-bottom: 0.44rem;
-    font-size: 50px;
-  }
-  .main-top {
-    height: calc(100% - 1.28rem);
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  .header {
-    padding: 0.37rem 0.32rem 0.24rem;
-  }
+  {{land_info.facebook_javascript}}
 
-  .header h4 {
-    font-size: 0.46rem;
-    font-family: Roboto-Medium, Roboto;
-    font-weight: 600;
-    color: #27292A;
-    line-height: 0.6rem;
-  }
-
-  .header .sub-title {
-    font-size: 0.32rem;
-    font-family: ArialMT;
-    color: #68696A;
-    line-height: 0.40rem;
-    margin-bottom: 0.21rem;
-  }
-  .header .chapter-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 0.4rem;
-    font-size: 0.24rem;
-    font-family: Roboto-Medium, Roboto;
-    font-weight: 500;
-    color: #FF7E42;
-    line-height: 0.4rem;
-    margin-top: 0.2rem;
-  }
-  .booknameimg{
-    height: 0.4rem;
-    font-size: 0.28rem;
-    margin: 0.16rem 0;
-    font-family: Roboto-BoldItalic, Roboto;
-    font-weight: bold;
-    /* color: #FF7E42; */
-    line-height: 0.4rem;
-    text-align: center;
-    font-style: oblique;
-  }
-  .chapter-info i {
-    width: 0.48rem;
-    height: 0.48rem;
-    /* background-image: url('data:image/png;base64,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'); */
-    background-size: cover;
-  }
-  .chapter-info span:first-of-type a {
-    color: #FF7E42;
-    text-decoration: none;
-  }
-  .chapter-info span:last-of-type {
-    color: #717273;
-  }
-  .chapter-img {
-    font-size: 0;
-  }
-  .chapter-img img {
-    width: 7.2rem;
-    height: 3.2rem;
-    padding: 0 0.32rem;
-    object-fit: cover;
-  }
-  .chapter-img p {
-    font-size: 0.24rem;
-    font-family: ArialMT;
-    color: #636465;
-    line-height: 0.32rem;
-    text-align: center;
-    margin: 0.16rem;
-  }
-  .chapter-txt {
-    font-size: 0.32rem;
-    font-weight: 400;
-    color: #3b3c3d;
-    line-height: 0.42rem;
-    padding: 0.40rem;
-    word-spacing: normal;
-    word-break: break-word;
-    font-size: 0.36rem;
-    font-family: Roboto-Regular, Roboto;
-    font-weight: 400;
-    color: #27292A;
-    line-height: 0.56rem;
-    padding: 0.32rem;
-  }
-  .chapter-txt p {
-    margin-top: 12px;
-  }
-  .fotter_book {
-    font-size: 0.32rem;
-    padding-top: 0.32rem;
-    font-family: SFProText-Regular, SFProText;
-    font-weight: 400;
-    text-align: center;
-  }
-  .book_content{
-    padding-bottom: 0;
-  }
-  .fotter_book .downloadText {
-    height: 0.38rem;
-    font-size: 0.38rem;
-    margin: 0 0.32rem;
-    font-family: Roboto-Bold, Roboto;
-    font-weight: bold;
-    /* color: #FF7E42; */
-    line-height: 0.38rem;
-    letter-spacing: -0.015rem;
-    text-align: center;
-  }
-  .fotter_book .downloadText1 {
-   
-    color: rebeccapurple;
-    
-  }
-  .handimg{
-    width: 5.1rem;
-    height: 0.5rem;
-    margin-top: 0.48rem;
-  }
-  .biaoji{
-    /* 不变 */
-    color: #F55031;
-    font-weight: 600;
-  }
-  .fotter_book p {
-    height: 0.64rem;
-    margin-top: 0.32rem;
-    padding: 0 0.32rem;
-    font-size: 0.24rem;
-    font-family: Roboto-Medium, Roboto;
-    font-weight: 500;
-    color: #7D7F7F;
-    line-height: 0.32rem;
-  }
-  .flextitle{
-    /* position: relative; */
-    display: flex;
-    justify-content: center;
-    margin-top: 0.48rem;
-  }
-  .fotter_bookname{
-    display: inline-block;
-    /* position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto; */
-  }
-  .footer_bookname_flex{
-    /* 不变 */
-    display: flex;
-    align-items: center;
-    height: 0.48rem;
-    padding: 0 0.24rem;
-    /* margin-left: 1.85rem; */
-    background: rgba(255,208,112,0.34);
-    border-radius: 0.24rem;
-  }
-  .footer_bookname_flex span{
-    display: inline-block;
-    width: 0.24rem;
-    height: 0.26rem;
-    /* margin: 0 0.16rem  0 0.24rem; */
-    margin-right: 0.16rem;
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAA0CAMAAAD7TUujAAAAAXNSR0IArs4c6QAAAEhQTFRFAAAA9lI39lEx9VEy9VEx9VAx9VQz9VU09Vc1929B+IVO+IZN+IdP+YpQ+6lh+6pg+69k+7Jl/MBt/tJ2/tt7/tt8/t99/999Ar7OqAAAAAV0Uk5TABym5u3TzgXrAAAAg0lEQVRIx+3WuQ7CQAwEUB87kADLkUDm//+UIqIBrM12CHkqy/KTXI6ImuMjfMu6dVMRLcBWABQVQw+AifcBF/QBJEiQ4GfAcjkvG8GdJKcRGCeSfDTBlZyP63iYyVsT7GsdXvNwqrsmiJMgQYI/A95370H9CWNBwYpSVL5XuOAfU3kCPylMzUI+m6EAAAAASUVORK5CYII=') no-repeat;
-    background-size: cover;
-  }
-  .footer_bookname_flex div{
-    height: 0.4rem;
-    font-size: 0.28rem;
-    font-family: Roboto-BoldItalic, Roboto;
-    font-weight: normal;
-    color: #27292A;
-    line-height: 0.4rem;
-    letter-spacing: -0.017rem;
-    font-style: oblique;
-  }
-  footer {
-    height: 1.28rem;
-    /* background: #FFFFFF; */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: 0px 1px 0px 0px #ECECEC;
-    /* 新版本语法 Opear 12.1 Firefox 22+ */
-    display: -webkit-box;
-    /* 新版本语法 Safari， ios， Android browser, older Webkit browsers. */
-    display: -moz-box;
-    /* 新版本语法 Firefox(buggy) */
-    display: -ms-flexbox;
-    /* 新版本语法 Chrome 21+ */
-    display: flex;
-    /* 新版本语法 IE 10 */
-    justify-content: center;
-    /* -moz-justify-content: center;
-            -webkit-justify-content: center; */
-    align-items: center;
-    /* -moz-align-items: center;
-            -webkit-align-items: center; */
-  }
-
-  footer a {
-    width: 6.4rem;
-    height: 0.88rem;
-    /* background: #FF7E42; */
-    border-radius: 0.44rem;
-    font-size: 0.32rem;
-    font-family: Roboto-Bold, Roboto;
-    font-weight: bold;
-    color: #FFFFFF;
-    line-height: 0.88rem;
-    text-align: center;
-  }
-</style>
 <!-- <script src='https://landpage.hw.dzods.cn/wf_land_page/js/vconsole.min.js'></script>
 <script>
   var vConsole = new VConsole();
 </script> -->
 <!-- 产品线 -->
 <script>
-  // 替换产品  1 小说大全 2 小说阅读吧 and 3 小说快读 4 小说阅读吧 5 webfic 6 gostory 7 novelread 
+  // 替换产品  1 小说大全 2 小说阅读吧 and 3 小说快读 4 小说阅读吧 5 webfic 6 gostory 7 novelread
   // model_productid  产品id  model_clientid 剪切板规则  model_apiid 请求接口域名  model_logid 打点字段区分 model_downloadid 下载链接区分 model_blineid 打点bline区分
   var model_productid = land_info.product_distinguish;//产品线
   var enter_fbscriptid = land_info.enter_fbscriptid;//嵌入fb 的 id区分
@@ -290,9 +41,9 @@
   var ftua_pname =''
   var ftua_pname_android =''
   var model_productname =''  //指纹id产品线前缀
-  var iosDeeplink ='' //ios 
+  var iosDeeplink ='' //ios
   var fingerPrintPversion = 1 //新增指纹id p 参数
-  
+
   switch (model_productid) {
     case '5':
     model_clientid = "wfb_"
@@ -310,9 +61,9 @@
     model_downloadios = 'https://itunes.apple.com/us/app/id1517946671'
     model_downloadandroid = 'https://play.google.com/store/apps/details?id=com.webfic.novel'
     model_colorid = '#FF7E42'
-    
+
       break;
-  
+
     case '7':
     model_clientid = "nrb_"
     model_nameid = 'Novelread'
@@ -329,9 +80,8 @@
     model_downloadios = 'https://apps.apple.com/us/app/novelread/id1611876110'
     model_downloadandroid = 'https://play.google.com/store/apps/details?id=com.booksource.novelread'
     model_colorid = '#00880C'
-    
       break;
-  
+
     case '1':
     model_clientid = "ftb_"
     model_nameid = '小說大全'
@@ -339,7 +89,7 @@
     // model_apiid = 'https://yfb.klynf.com/asg'
     model_apiid = 'https://api.klynf.com/asg'
     model_logurlid = 'https://log.klynf.com/h5_stand_final_log.php'
-    api_remote = '/remote.do' 
+    api_remote = '/remote.do'
     api_ua = '/cacheua.do'
     model_logid = 'daquan'
     model_blineid = 'ft'
@@ -352,16 +102,16 @@
     ftua_pname_android = 'com.dz.xsdq'
     // iosDeeplink = "https://app.adjust.com/7wek21u?label=66&deeplink=dzbookapp://landingpageopen?clipboard="
     iosDeeplink = "https://api.klynf.com/open?clipboard="
-    
+
       break;
-  
+
     case '4':
     model_clientid = "ftb_"
     model_nameid = '小說閱讀吧' //ios
     // model_apiid = 'https://241.qcread.cn/asg'
     // model_apiid = 'https://yfb.klynf.com/asg'
     model_apiid = 'https://api.klynf.com/asg'
-    api_remote = '/remote.do' 
+    api_remote = '/remote.do'
     api_ua = '/cacheua.do'
     model_logurlid = 'https://log.klynf.com/h5_stand_final_log.php'
     model_logid = 'yueduba'
@@ -375,16 +125,16 @@
     iosDeeplink = 'https://app.adjust.com/ln1ot9l?label=66&deeplink=dzbookapp://landingpageopen?clipboard='
     // iosDeeplink = 'https://api.kwread.com/open?clipboard='
 
-    
+
       break;
-  
+
     case '3':
     model_clientid = "ftb_"
     model_nameid = '小說快讀'
     // model_apiid = 'https://241.qcread.cn/asg'
     // model_apiid = 'https://yfb.klynf.com/asg'
     model_apiid = 'https://api.klynf.com/asg'
-    api_remote = '/remote.do' 
+    api_remote = '/remote.do'
     api_ua = '/cacheua.do'
     model_logurlid = 'https://log.klynf.com/h5_stand_final_log.php'
     model_logid = 'kuaidu'
@@ -398,16 +148,16 @@
     ftua_pname_android = 'com.yj.xskd'
     iosDeeplink = 'https://app.adjust.com/a8koqyn?label=66&deeplink=dzbookapp://landingpageopen?clipboard='
 
-    
+
       break;
-  
+
     case '2':
     model_clientid = "ftb_"
     model_nameid = '小說閱讀吧'
     // model_apiid = 'https://241.qcread.cn/asg'
     // model_apiid = 'https://yfb.klynf.com/asg'
     model_apiid = 'https://api.klynf.com/asg'
-    api_remote = '/remote.do' 
+    api_remote = '/remote.do'
     api_ua = '/cacheua.do'
     model_logurlid = 'https://log.klynf.com/h5_stand_final_log.php'
     model_logid = 'remen'
@@ -418,9 +168,9 @@
     ftua_pname_android = 'com.book.rmxs'
     model_downloadandroid = 'https://play.google.com/store/apps/details?id=com.book.rmxs'
     model_colorid = '#F43900'
-    
+
       break;
-  
+
     default:
       break;
   }
@@ -466,9 +216,9 @@
   }
   // 单独处理脚本
   if(window.location.hostname == 'lp.xskda.com'){
-    model_clarityjsid = 'c0savema1t' 
+    model_clarityjsid = 'c0savema1t'
   }else if(window.location.hostname == 'lp.webficread.com'){
-    model_clarityjsid = 'c0sal2hj11' 
+    model_clarityjsid = 'c0sal2hj11'
   }else if(window.location.hostname == 'landpage.hw.dzods.cn'){
     model_clarityjsid = 'bd2lt7m40g'
   }else{
@@ -504,7 +254,7 @@
     case '2':
     model_googlejsid = 'G-69WYXPFHR5'
       break;
-  
+
     default:
     model_googlejsid ='G-KMV3QH0B9M'
       break;
@@ -588,9 +338,9 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
 </script>
 <!-- 多语言处理 -->
 <script>
-  var languagePack = 
+  var languagePack =
   {
-      "To See The Full Vision":{   
+      "To See The Full Vision":{
           "cn":"解鎖更多精彩內容",
           "en":"To See The Full Vision",
           "es":"Ver la Versión Completa",
@@ -599,7 +349,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
           "th":"ดูเวอร์ชันเต็ม",
           "ko":"풀버전 보기",
       },
-      "Install Now":{   
+      "Install Now":{
           "cn":"立即下載",
           "en":"Install Now",
           "es":"Instale ahora",
@@ -608,7 +358,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
           "th":"ติดตั้งในขณะนี้",
           "ko":"지금 설치",
       },
-      "Tap for full text":{   
+      "Tap for full text":{
           "cn":"立即下載",
           "en":"Tap for full text",
           "es":"Toca para ver el texto completo",
@@ -617,7 +367,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
           "th":"กดเพื่อดูเนื้อหาทั้งหมด",
           "ko":"책 전체를 보려면 탭하세요",
       },
-      ">>> Tap for more exciting contents":{   
+      ">>> Tap for more exciting contents":{
           "cn":">>> 點擊繼續閱讀精彩內容",
           "en":">>> Tap for more exciting contents",
           "es":">>> Toca para ver más contenido emocionante",
@@ -626,7 +376,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
           "th":">>> กดเพื่อเนื้อหาที่น่าสนใจเพิ่มเติม",
           "ko":">>> 더 많은 흥미로운 콘텐츠를 보려면 탭하세요",
       },
-      "Tap to be redirected, if fails you can download the app and search for number: xxxx to continue reading":{   
+      "Tap to be redirected, if fails you can download the app and search for number: xxxx to continue reading":{
           "cn":"點擊進入應用，失敗時可下載APP繼續閱讀 <br/>下載APP在書城搜索書號: xxxx 就可以找到後續內容哦",
           "en":"Tap to be redirected, if fails you can download the app and search for number: xxxx to continue reading",
           "es":"Toca para ser redirigido, si aparece error, puede descargar la aplicación y buscar el número: xxxx para continuar leyendo",
@@ -635,7 +385,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
           "th":"กดเพื่อเชื่อมต่อใหม่ หากล้มเหลว คุณสามารถดาวน์โหลดแอปนี้ และค้นหาหมายเลข: xxxx เพื่ออ่านต่อ",
           "ko":"전송받기 하려면 탭하세요. 실패할 경우 앱을 다운로드해서 숫자 xxxx를 검색하면 계속 읽을 수 있습니다.",
       },
-      "download app":{   
+      "download app":{
           "cn":"立即下載",
           "en":"download app",
           "es":"descargue la aplicación",
@@ -644,7 +394,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
           "th":"ดาวน์โหลดแอป",
           "ko":"앱 다운로드",
       },
-      "loading":{  
+      "loading":{
           "cn":"加載中",
           "en":"loading",
           "es":"Cargando",
@@ -684,7 +434,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
               var switchAfter = languagePack[obj.text][languageType].replace(/x_x/ig,num)
               $(obj.class).html(switchAfter);
           }
-      } 
+      }
   }
 </script>
 
@@ -738,7 +488,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
   var current;
   var currentFlag;
   var flagnewArr = [];
-  var currentnewFlag;  
+  var currentnewFlag;
   var newcurrent;
   var f1 = 0;
   var f2 = 0;
@@ -807,7 +557,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
         var indexStr = $('.biaoji').html();
         $('.biaoji').html() == '  ' ? $('.downloadp').css({'display':'none'}):'';
     }
-  $(function() { 
+  $(function() {
     var downloadHref ;
     var replaceId = '';
     var isControl = true;
@@ -845,7 +595,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
     var utm_campaign = GetQueryString("utm_campaign") || '0';
     var campaignList = [0, 0, 0, 0, 0, 0, 0, 0];
     utm_campaign != "0"?campaignList = utm_campaign.split("_"):'';
-    
+
     var url_bid = ''
     var url_token = ''
     var url_channelCode = ''
@@ -856,7 +606,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
       url_bid = campaignList[3]
       url_token = campaignList[4]
         break;
-    
+
       default:
       url_channelCode = campaignList[1]
       url_bid = campaignList[2]
@@ -913,35 +663,35 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
     })
     function startLogPvHandle() {
       logH5webfic([1,'luodiyelogPV_comein_'+model_logid])
-      // 立即点击不会上报ua 
+      // 立即点击不会上报ua
       if(allowJump=='2'){return}
       // 统一下分是否进行上报
       switch (model_productid) {
         case '5':
           getCatchua()
           break;
-      
+
         case '7':
           getCatchua()
           break;
-      
+
         case '1'://大全
           getFantiCatchua()
           break;
-      
+
         case '2'://阅读吧 android
           getFantiCatchua()
           break;
-      
+
         case '3'://小说快读
           // is_ios?'':getFantiCatchua()
           getFantiCatchua()
           break;
-      
+
         case '4'://阅读吧 ios
           getFantiCatchua()
           break;
-      
+
         default:
           break;
       }
@@ -1019,7 +769,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
       }
       return pwd;
     }
-    
+
     // 获取URL参数
     function GetQueryString(name) {
       var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -1089,28 +839,28 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
           case '5':
             getCatchua()
             break;
-        
+
           case '7':
             getCatchua()
             break;
-        
+
           case '1'://大全
             getFantiCatchua()
             break;
-        
+
           case '2'://阅读吧 android
             getFantiCatchua()
             break;
-        
+
           case '3'://小说快读
             // is_ios?'':getFantiCatchua()
             getFantiCatchua()
             break;
-        
+
           case '4'://阅读吧 ios
             getFantiCatchua()
             break;
-        
+
           default:
             break;
         }
@@ -1128,7 +878,7 @@ function getIOSVersion(){var e=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)
         setTimeout(function(){
           timeoutHandler(writeContent)
         }, 300);
-        
+
         isControl = false
         setTimeout(function () {
           isControl = true
