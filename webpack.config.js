@@ -11,7 +11,7 @@ const config = {
     entry,
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name]-bundle.js',
+        filename: '[name]-bundle.js',
         clean: {
             keep: /assets\//,
         },
@@ -19,7 +19,7 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.(j|t)s$/,
+                test: /\.js$/,
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),
                 use: 'babel-loader',
@@ -36,15 +36,15 @@ const config = {
                 ]
 
             },
-            // {
-            //     test: /\.html$/i,
-            //     use: {
-            //         loader: "html-loader",
-            //         options: {
-            //             minimize: false,
-            //         }
-            //     }
-            // },
+            {
+                test: /\.html$/i,
+                use: {
+                    loader: "html-loader",
+                    options: {
+                        minimize: false,
+                    }
+                }
+            },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 type: 'asset',
@@ -68,7 +68,7 @@ const config = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: `css/[name].css`,
+            filename: `[name].css`,
         }),
         ...plugins,
     ],

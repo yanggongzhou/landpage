@@ -1,7 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const glob = require('glob');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { re } = require("@babel/core/lib/vendor/import-meta-resolve");
 const entry = {};
 const plugins = [];
 
@@ -17,23 +15,10 @@ function loadModules () {
     return modules
 }
 
-const defaultConfig = require('./defultTag.js');
 
 loadModules().forEach((item,ind) => {
     // 入口
     entry[item] = `./src/page/${item}/index.js`;
-    // const cssPlugin = new MiniCssExtractPlugin({
-    //     filename: `css/${item}_${ind}_[name].css`,
-    //     chunkFilename: `${item}_${ind}_[name]`,
-    //     // ignoreOrder
-    //     // insert
-    //     // attributes
-    //     // linkType
-    //     // runtime
-    //     // experimentalUseImportModule
-    // })
-    // // console.log('Source--------->', MiniCssExtractPlugin.CssModule.content)
-    // plugins.push(cssPlugin);
 
     const htmlPlugin = new HtmlWebpackPlugin({
         template: `./src/page/${item}/index.html`,
@@ -46,8 +31,7 @@ loadModules().forEach((item,ind) => {
         chunks: [item],
         minify: false, // 禁止html压缩 配合html-loader minimize: false
         hash: true,
-        inject: "head",
-        ...defaultConfig,
+        inject: true,
     });
     // 出口
     plugins.push(htmlPlugin);

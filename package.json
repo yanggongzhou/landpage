@@ -33,6 +33,9 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
-    "glob": "^8.0.3"
+    "axios": "^0.27.2",
+    "glob": "^8.0.3",
+    "sa-sdk-javascript": "^1.23.4",
+    "vue-clipboard2": "^0.3.3"
   }
 }
