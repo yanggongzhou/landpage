@@ -30,9 +30,9 @@ const config = {
                 exclude: /(node_modules|bower_components)/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    { loader: 'css-loader' },
-                    { loader: 'postcss-loader'},
-                    { loader: 'sass-loader' }
+                    { loader: 'css-loader', options: { sourceMap: false } },
+                    { loader: 'postcss-loader', options: { sourceMap: false } },
+                    { loader: 'sass-loader', options: { sourceMap: false } }
                 ]
 
             },

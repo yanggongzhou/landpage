@@ -8,7 +8,7 @@ const htmlPlugin = new HtmlWebpackPlugin({
   filename: `index.html`,
   // favicon: "src/assets/favicon.ico",
   cache: false,
-  chunks: ['index'],
+  // chunks: ['index'],
   minify: false, // 禁止html压缩 配合html-loader minimize: false
   inject: 'body',
   ...defaultTag,

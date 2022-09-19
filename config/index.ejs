@@ -3,13 +3,6 @@
 <head>
     <%= htmlWebpackPlugin.options.mateTag %>
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <script>
-        window.appConfig = {
-            Rem: 750, // 字号对应
-            MicrosoftCode: 'bd2lt7m40g', // 微软分析
-            GoogleCode: 'G-KMV3QH0B9M', // 谷歌分析,
-        }
-    </script>
     <%= htmlWebpackPlugin.options.script_rem %>
     <%= htmlWebpackPlugin.options.script_Microsoft %>
     <%= htmlWebpackPlugin.options.script_GoogleCode %>
@@ -17,7 +10,7 @@
 
 <body>
 <div id="app">
-
+    <%= require('../src/page/index/index.html').default %>
 </div>
 <%= htmlWebpackPlugin.options.script_zepto %>
 </body>
