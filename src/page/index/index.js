@@ -4,7 +4,7 @@ import { netHiveLog, netIP } from "../../util/clientLog";
 import { useGoogle, useMicrosoft } from "../../util/thirdPartTag";
 import { removeListen, setRem } from "../../util/rem";
 import ClientConfig from "../../client.config.json";
-import '../../style/base.css';
+import '../../assets/css/base.css';
 import './index.scss';
 
 (function initPageData () {
