@@ -11,7 +11,7 @@ const config = {
     entry,
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name]-bundle.js',
+        filename: 'bundle.js',
         clean: {
             keep: /assets\//,
         },

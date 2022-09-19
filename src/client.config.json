@@ -33,10 +33,6 @@
     "ios": "https://itunes.apple.com/us/app/id1517946671",
     "android": "https://play.google.com/store/apps/details?id=com.webfic.novel"
   },
-  "sentryData": {
-    "isAutoTrack": true,
-    "url": "https://sc-sa.dzfread.cn/sa?project=xxxx"
-  },
   "netUrl": {
     "ip": "https://api.gostory.com/gostory/ap001/remote",
     "hive": "https://log.gostory.com/h5_standard_final_log.php"
