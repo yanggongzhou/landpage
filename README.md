@@ -21,6 +21,53 @@
 ```
 
 ##### script
-```
+1. 剪切板 ClipboardJS
+2. zepto
+3. 微软分析
+4. 谷歌分析
+5. rem
 
+#### 公共参数 src/client.config.json
+```
+{
+  "name": "platform name",          // 平台名称
+  "googleCode": "G-KMV3QH0B9M",     // 谷歌分析code
+  "microsoftCode": "bd2lt7m40g",    // 微软分析code
+  "rem": {
+    "type": "vertical",             // 模式 值vertical｜horizontal 监听竖屏可设置horizontal 
+    "horizontalWidth": 1624,        // 横屏rem对比参数 模式为horizontal时需设置
+    "verticalWidth": 750            // 竖屏rem对比参数
+  },
+  "adjustObj": {                    // 大数据打点、剪切板等必要参数
+    "bookId": "",                   // 书籍ID
+    "token": "",                    // token
+    "cid": 0,                       // 章节ID
+    "shareCode": 0                  // 分享code
+  },
+  "defaultChannelCode": {
+    "ios": "GSIZ1000001",           // ios默认渠道号
+    "android": "GSAZ1000001"        // android默认渠道号
+  },
+  "logParam": {                     // 大数据打点等必要参数
+    "bline": "",
+    "pline": "",
+    "pkna": "",
+    "app_version": "1.0.0",
+    "imei": "",
+    "oaid": "",
+    "idfa": "",
+    "type": ""
+  },
+  "logDataType": "xxx_luodiye_xxx_", // 大数据打点自定义data type 必要参数
+  "clientId": "ftb_",                // 剪切板参数头部信息
+  "downloadLink": {                  // 下载商店链接
+    "ios": "https://itunes.apple.com/us/app/id1517946671",
+    "android": "https://play.google.com/store/apps/details?id=com.webfic.novel"
+  },
+  "netUrl": {
+    "ip": "https://api.gostory.com/gostory/ap001/remote",       // 服务端获取IP链接
+    "hive": "https://log.gostory.com/h5_standard_final_log.php" // 大数据链接
+  },
+  ....                                // 其余可根据项目需要自行配置
+}
 ```

@@ -9,7 +9,7 @@ const defaultTag = {
   <meta http-equiv="pragma" content=no-cache>
   <meta http-equiv="Cache-Control" content=no-cache>
   <meta http-equiv="Expires" content=0>
-  <title>"${ClientConfig.name}"</title>`,
+  <title>${ClientConfig.name}</title>`,
   <!--rem 字号 适配-->
   script_rem: `<script>
     (function (doc, win) {

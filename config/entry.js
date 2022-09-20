@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const defaultTag = require('./defaultTag');
 
 const htmlPlugin = new HtmlWebpackPlugin({
-  template: `./config/index.ejs`,
+  template: `./src/index.ejs`,
   filename: `index.html`,
   // title: item,
   cache: false,

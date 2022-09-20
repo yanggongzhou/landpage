@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "lint": "eslint --ext .js, src",
     "serve": "webpack-dev-server --node-env=development  --mode=development ",
     "build": "webpack  --node-env production  --progress --watch ",
     "dev": "webpack --node-env=development  --progress --watch"

@@ -1,5 +1,6 @@
 import { compile, getCookie, GetQueryString, isIos, randomString } from './other'
 import ClientConfig from '../client.config.json';
+const { logParam = {}, logDataType, adjustObj, defaultChannelCode, clientId } = ClientConfig;
 
 export const getUserLandId = () => {
   const userlandId = window.localStorage.getItem('USER_LANDPID');
@@ -16,14 +17,14 @@ const getAdjustParams = () => {
   const utm_campaign = GetQueryString("utm_campaign") || '0';
   const campaignList = utm_campaign !== "0" ? utm_campaign.split("_") : [0, 0, 0, 0, 0, 0, 0, 0, 0];
   let channelCode;
-  let token = ClientConfig.adjustObj.token;
+  let token = adjustObj.token;
   if (utm_campaign && utm_campaign !== "0") {
     channelCode = campaignList[ 2 ];
     token = campaignList[ 4 ];
   } else {
-    channelCode = isIos ? ClientConfig.defaultChannelCode.ios : ClientConfig.defaultChannelCode.android;
+    channelCode = isIos ? defaultChannelCode.ios : defaultChannelCode.android;
   }
-  const bookId = campaignList[ 3 ] || Number(GetQueryString('bookId')) || ClientConfig.adjustObj.bookId;
+  const bookId = campaignList[ 3 ] || Number(GetQueryString('bookId')) || adjustObj.bookId;
   return {
     ip: window.localStorage.getItem('DEVICE_IP') || "0.0.0.0",
     log_id: randomString(),
@@ -32,8 +33,8 @@ const getAdjustParams = () => {
     bookId,
     bid: bookId,
     channelCode,
-    cid: ClientConfig.adjustObj.cid,
-    shareCode: ClientConfig.adjustObj.shareCode,
+    cid: adjustObj.cid,
+    shareCode: adjustObj.shareCode,
     url: window.location.href,
     fbp: getCookie("_fbp"),
     fbc: getCookie("_fbc") || `fb.1.${new Date().getTime()}.${GetQueryString('fbclid') || '0'}`,
@@ -48,15 +49,16 @@ const getAdjustParams = () => {
  */
 export const getLogParams = (data, eventType) => {
   const adjustObj = getAdjustParams();
+
   return {
-    ...ClientConfig.logParam,
+    ...logParam,
     log_id: randomString(), // 日志id 随机生成，16位字符串即可
     cts: new Date().getTime(), // 客户端时间，精确到毫秒
     chid: adjustObj.channelCode, // 渠道号
     uid: getUserLandId(),
     event: eventType, // 事件名称
     data: {
-      type: ClientConfig.logDataType,
+      type: logDataType,
       action: 3, // 1 pv | 2 按钮点击下载
       planId: adjustObj.campaign_id || '0',
       planName: adjustObj.campaign_name,
@@ -73,5 +75,5 @@ export const getLogParams = (data, eventType) => {
 export const getCopyText = () => {
   const adjustObj = getAdjustParams();
   // console.log('ip---------->', adjustObj.ip)
-  return ClientConfig.clientId + compile(adjustObj);
+  return clientId + compile(adjustObj);
 }

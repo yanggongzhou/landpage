@@ -73,8 +73,9 @@ const config = {
         ...plugins,
     ],
     externals: {
-      "zepto": 'window.Zepto',
-      'clipboardjs': 'window.ClipboardJS'
+      "Zepto": 'window.Zepto',
+      "$": 'window.Zepto',
+      'ClipboardJS': 'window.ClipboardJS'
     },
     optimization: {
         splitChunks: {
