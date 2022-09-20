@@ -71,3 +71,19 @@
   ....                                // 其余可根据项目需要自行配置
 }
 ```
+#### 目录简要
+
+```
+-landpage
+    -config                       // webpack配置
+    -webpack.config.js
+    -dist                         // build result
+    -src                          // 工作区
+        -assets                   // 静态资源
+        -client.config.json       // 公共参数配置文件
+        -index.ejs                // 模版文件 -- 注意：commonjs规范 引入自定义组件
+        -main.js                  // entry入口 -- es6的module规范
+        -util                     // 其他 自定义方法等
+        -*.html                   // 其他 自定义组件等
+---
+```
