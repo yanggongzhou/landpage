@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%= htmlWebpackPlugin.options.mateTag %>
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>ejs</title>
     <%= htmlWebpackPlugin.options.script_rem %>
     <%= htmlWebpackPlugin.options.script_Microsoft %>
     <%= htmlWebpackPlugin.options.script_GoogleCode %>
@@ -10,9 +10,14 @@
 
 <body>
 <div id="app">
-    <%= require('../src/page/index/index.html').default %>
+    <%= require('../src/component/downloadButton.html').default %>
+    <%= require('../src/index.html').default %>
 </div>
-<%= htmlWebpackPlugin.options.script_zepto %>
-</body>
 
+
+
+<%= htmlWebpackPlugin.options.script_zepto %>
+<%= htmlWebpackPlugin.options.script_clipboard %>
+<%= process.env.NODE_ENV === 'development' ? htmlWebpackPlugin.options.script_vconsole : '' %>
+</body>
 </html>

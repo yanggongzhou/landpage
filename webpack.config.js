@@ -1,6 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
-const devServer = require('./config/devServer.js')
 const { entry, plugins } = require('./config/entry.js')
 
 const mode = process.env.NODE_ENV;
@@ -18,6 +17,7 @@ const config = {
     },
     module: {
         rules: [
+            // { test: /\.txt$/, use: 'babel-loader', },
             {
                 test: /\.js$/,
                 include: path.resolve(__dirname, 'src'),
@@ -53,7 +53,7 @@ const config = {
                 },
                 parser: {
                     dataUrlCondition: {
-                        maxSize: 2 * 1024 // 4kb
+                        maxSize: 1024 * 1024 // 1024k 默认压缩
                     }
                 }
             },
@@ -72,9 +72,10 @@ const config = {
         }),
         ...plugins,
     ],
-    // externals: {
-    //     'jquery': 'window.jQuery'
-    // },
+    externals: {
+      "zepto": 'window.Zepto',
+      'clipboardjs': 'window.ClipboardJS'
+    },
     optimization: {
         splitChunks: {
             cacheGroups: {
@@ -88,7 +89,21 @@ const config = {
             }
         }
     },
-    devServer,
+    devServer: {
+      compress: true,
+      open: true,
+      port: 9000,
+      proxy: {
+        '/dzapi': {
+          target: 'http://192.168.0.241:8080',
+          // target: 'http://127.0.0.1:7001',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/dzapi': ''
+          }
+        }
+      },
+    },
 };
 
 module.exports = config;

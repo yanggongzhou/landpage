@@ -1,8 +1,9 @@
 #### 处理事项
-1. 小图片等静态资源自动转换base64 [详细可查sources](https://webpack.docschina.org/loaders/html-loader/#sources)
+1. 图片资源默认1MB以内打包生成base64形式 [详细可查sources](https://webpack.docschina.org/loaders/html-loader/#sources)
 2. js默认压缩babel向下兼容性，且不妨碍在线排查问题（已开通sourcemap）
 3. html不压缩处理
-4. 注入标签
+4. css 默认压缩，关闭sourceMap以减小体积
+5. 注入标签
 ##### mate
 
 ```
@@ -17,4 +18,9 @@
 <meta http-equiv="Expires" content=0>
 <!-- 兼容 -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+```
+
+##### script
+```
+
 ```

@@ -1,6 +1,5 @@
 import { getLogParams } from './logParams';
 import ClientConfig from '../client.config.json'
-
 // 大数据打点
 export const netHiveLog = (data = {}, eventType = '') => {
   const logData = getLogParams(data, eventType);

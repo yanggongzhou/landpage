@@ -3,15 +3,13 @@ const defaultTag = require('./defaultTag');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: `./config/index.ejs`,
-  // template: `./config/index.ejs`,
-  // base: `./src/page/${item}/index.html`,
   filename: `index.html`,
-  // favicon: "src/assets/favicon.ico",
+  // title: item,
   cache: false,
-  // chunks: ['index'],
+  // chunks: [item],
   minify: false, // 禁止html压缩 配合html-loader minimize: false
-  inject: 'body',
+  hash: true,
+  inject: "body",
   ...defaultTag,
 });
-
-module.exports = { entry: `./src/page/index/index.js`, plugins: [htmlPlugin] }
+module.exports = { entry: `./src/main.js`, plugins: [ htmlPlugin ] }
