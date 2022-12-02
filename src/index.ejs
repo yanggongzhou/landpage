@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <%= htmlWebpackPlugin.options.script_client %>
     <%= htmlWebpackPlugin.options.mateTag %>
     <%= htmlWebpackPlugin.options.script_rem %>
     <%= htmlWebpackPlugin.options.script_Microsoft %>
     <%= htmlWebpackPlugin.options.script_GoogleCode %>
 </head>
-
 <body>
 <div id="app">
     <%= require('./component/downloadButton.html').default %>
@@ -14,6 +14,7 @@
 </div>
 <%= htmlWebpackPlugin.options.script_zepto %>
 <%= htmlWebpackPlugin.options.script_clipboard %>
+<%= htmlWebpackPlugin.options.script_fingerprint %>
 <%= process.env.NODE_ENV === 'development' ? htmlWebpackPlugin.options.script_vconsole : '' %>
 </body>
 </html>

@@ -1,0 +1,40 @@
+{
+  "name": "小说阅读吧 IOS",
+  "googleCode": "G-KMV3QH0B9M",
+  "microsoftCode": "bd2lt7m40g",
+  "rem": {
+    "type": "vertical",
+    "horizontalWidth": 1624,
+    "verticalWidth": 750
+  },
+  "adjustObj": {
+    "bookId": "",
+    "token": "",
+    "cid": 0,
+    "shareCode": 0
+  },
+  "defaultChannelCode": {
+    "ios": "GSIZ1000001",
+    "android": "GSAZ1000001"
+  },
+  "logParam": {
+    "bline": "",
+    "pline": "",
+    "pkna": "",
+    "app_version": "1.0.0",
+    "imei": "",
+    "oaid": "",
+    "idfa": "",
+    "type": ""
+  },
+  "logDataType": "xxx_luodiye_xxx_",
+  "clientId": "ftb_",
+  "downloadLink": {
+    "ios": "https://itunes.apple.com/us/app/id1517946671",
+    "android": "https://play.google.com/store/apps/details?id=com.webfic.novel"
+  },
+  "netUrl": {
+    "ip": "https://api.gostory.com/gostory/ap001/remote",
+    "hive": "https://log.gostory.com/h5_standard_final_log.php"
+  }
+}

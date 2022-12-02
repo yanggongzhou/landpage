@@ -1,6 +1,6 @@
 import { compile, getCookie, GetQueryString, isIos, randomString } from './other'
-import ClientConfig from '../client.config.json';
-const { logParam = {}, logDataType, adjustObj, defaultChannelCode, clientId } = ClientConfig;
+
+const { logParam = {}, logDataType, adjustObj, defaultChannelCode, clientId } = PlatformConfig;
 
 export const getUserLandId = () => {
   const userlandId = window.localStorage.getItem('USER_LANDPID');

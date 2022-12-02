@@ -1,11 +1,11 @@
 import { getLogParams } from './logParams';
-import ClientConfig from '../client.config.json'
+
 // 大数据打点
 export const netHiveLog = (data = {}, eventType = '') => {
   const logData = getLogParams(data, eventType);
   $.ajax({
     type: "POST",
-    url: ClientConfig.netUrl.hive,
+    url: PlatformConfig.netUrl.hive,
     dataType: "json",
     contentType: "application/json;charset=UTF-8",
     data: { json: JSON.stringify(logData) }})
@@ -16,7 +16,7 @@ export const netIP = () => {
   window.localStorage.setItem('DEVICE_IP', '');
   $.ajax({
     type: "get",
-    url: ClientConfig.netUrl.ip,
+    url: PlatformConfig.netUrl.ip,
     dataType: "json",
     contentType: "application/json;charset=UTF-8",
     success: function (res) {

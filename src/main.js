@@ -1,6 +1,5 @@
 import { netHiveLog, netIP } from "./util/clientLog";
 import copyTxt from "./util/clipborad";
-import './assets/css/base.css';
 import './index.scss';
 
 netIP();
