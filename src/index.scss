@@ -82,6 +82,10 @@ a {
   letter-spacing: 0.02rem;
   background-color: #FF6033;
   border: none;
+  animation-name: popupShow;
+  animation-duration: 300ms;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
 }
 
 .popupWrap {
@@ -94,6 +98,10 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation-name: popupShow;
+  animation-duration: 300ms;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
 
   .mask {
     position: absolute;
@@ -203,7 +211,15 @@ a {
 
     }
   }
-
 }
 
-
+@keyframes popupShow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

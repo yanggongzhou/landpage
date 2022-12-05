@@ -1,6 +1,7 @@
-import { compile, getCookie, GetQueryString, isIos, randomString } from './other'
+import { compile, GetQueryString, isIos, randomString } from './other'
+import { getCookie } from "./cookie";
 
-const { logParam = {}, logDataType, adjustObj, defaultChannelCode, clientId } = PlatformConfig;
+const { logParam = {}, logDataType, adjustObj, clientId, ios, android } = PlatformConfig;
 
 export const getUserLandId = () => {
   const userlandId = window.localStorage.getItem('USER_LANDPID');
@@ -22,7 +23,7 @@ const getAdjustParams = () => {
     channelCode = campaignList[ 2 ];
     token = campaignList[ 4 ];
   } else {
-    channelCode = isIos ? defaultChannelCode.ios : defaultChannelCode.android;
+    channelCode = isIos ? ios.channelCode : android.channelCode;
   }
   const bookId = campaignList[ 3 ] || Number(GetQueryString('bookId')) || adjustObj.bookId;
   return {
@@ -74,6 +75,5 @@ export const getLogParams = (data, eventType) => {
  */
 export const getCopyText = () => {
   const adjustObj = getAdjustParams();
-  // console.log('ip---------->', adjustObj.ip)
   return clientId + compile(adjustObj);
 }
