@@ -19,8 +19,6 @@ export function GetQueryString(name) {
   }
 }
 
-
-
 // 判断安卓ios
 const u = navigator.userAgent;
 export const isIos = (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) || (!!u.match(/iPhone|mac|iPod|iPad|ios/i));
