@@ -3,6 +3,7 @@ import { netFtIPUA } from "./clientLog";
 
 const copyTxt = (classname = '.downloadBtn', successfun, errorfun) => {
   const text = getCopyText()
+
   netFtIPUA(text);
   (document.querySelector(classname)[0] || document.querySelector(classname))
     .setAttribute("data-clipboard-text", text);

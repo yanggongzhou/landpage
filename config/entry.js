@@ -17,18 +17,14 @@ const plugins = platforms.map(plat => {
   return new HtmlWebpackPlugin({
     ...options,
     filename: `${plat.name}.html`,
-    script_client: `<script type="text/javascript">
-      var PlatformConfig = ${plat.config}
-    </script>`
+    script_client: `<script type="text/javascript">var PlatformConfig = ${plat.config}</script>`
   });
 })
 
 const developmentPlugins = new HtmlWebpackPlugin({
   ...options,
   filename: `index.html`,
-  script_client: `<script type="text/javascript">
-    var PlatformConfig = ${platforms[0].config}
-  </script>`
+  script_client: `<script type="text/javascript">var PlatformConfig = ${platforms[0].config}</script>`
 });
 
 module.exports = {

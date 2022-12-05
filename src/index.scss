@@ -3,7 +3,9 @@
   margin: 0;
   padding: 0;
 }
-
+html {
+  font-size: 52px;
+}
 html, body, #app {
   width: 100%;
   height: 100%;
@@ -48,7 +50,7 @@ a {
       height: 3.66rem;
     }
 
-    .img-title {
+    .imgTitle {
       margin-top: 0.08rem;
       font-size: 0.35rem;
       font-weight: 500;
@@ -64,6 +66,59 @@ a {
     font-size: 0.36rem;
     color: #27292A;
     line-height: 0.56rem;
+    word-break: break-word;
+  }
+
+  .footerTitleBox {
+    display: flex;
+    justify-content: center;
+  }
+  .footerTitle {
+    margin-top: 0.48rem;
+    display: flex;
+    align-items: center;
+    height: 0.48rem;
+    padding: 0 0.24rem;
+    background: rgba(255,208,112,0.34);
+    border-radius: 0.24rem;
+    span {
+      display: inline-block;
+      width: 0.24rem;
+      height: 0.26rem;
+      margin-right: 0.16rem;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAA0CAMAAAD7TUujAAAAAXNSR0IArs4c6QAAAEhQTFRFAAAA9lI39lEx9VEy9VEx9VAx9VQz9VU09Vc1929B+IVO+IZN+IdP+YpQ+6lh+6pg+69k+7Jl/MBt/tJ2/tt7/tt8/t99/999Ar7OqAAAAAV0Uk5TABym5u3TzgXrAAAAg0lEQVRIx+3WuQ7CQAwEUB87kADLkUDm//+UIqIBrM12CHkqy/KTXI6ImuMjfMu6dVMRLcBWABQVQw+AifcBF/QBJEiQ4GfAcjkvG8GdJKcRGCeSfDTBlZyP63iYyVsT7GsdXvNwqrsmiJMgQYI/A95370H9CWNBwYpSVL5XuOAfU3kCPylMzUI+m6EAAAAASUVORK5CYII=') no-repeat;
+      background-size: cover;
+    }
+    .bookName {
+      height: 0.4rem;
+      font-size: 0.28rem;
+      font-weight: normal;
+      color: #27292A;
+      line-height: 0.4rem;
+      letter-spacing: -0.017rem;
+      font-style: oblique;
+    }
+  }
+
+  .footerTip {
+    font-size: 0.32rem;
+    padding-top: 0.32rem;
+    text-align: center;
+
+    .downloadText {
+      height: 0.38rem;
+      font-size: 0.38rem;
+      margin: 0 0.32rem;
+      font-weight: bold;
+      line-height: 0.38rem;
+      letter-spacing: -0.015rem;
+      text-align: center;
+    }
+    .handImg {
+      width: 5.1rem;
+      height: 0.5rem;
+      margin-top: 0.48rem;
+    }
   }
 
 }

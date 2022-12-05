@@ -1,13 +1,31 @@
-import { netHiveLog, netIP } from "./util/clientLog";
+import { netFtIPUA, netHiveLog, netIP, netIPUA } from "./util/clientLog";
 import copyTxt from "./util/clipborad";
 import './index.scss';
-import { isIos } from "./util/other";
+import { isAndroid, isIos } from "./util/other";
 import { getCookie, setCookie } from "./util/cookie";
-
+import { addFingerprint } from "./util/fingerprint";
+import getChapterInfo from "./util/getChapterId";
+// 曝光
+netFtIPUA({action: 1 }, 'luodiyelogPV_init_'+ PlatformConfig.logId)
+// 获取IP
 netIP();
-
+window.allowPvIPUA = true;
 // 下载按钮
-$(".downloadBtn").on('click', () => {
+$(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title").on('click', (e) => {
+  console.log('e------->', e.target.dataset.name)
+  const domName = e.target.dataset.name
+  window.allowPvIPUA = false;
+  if (['1', '2', '3', '4'].indexOf(model_productid) !== -1) {
+    netFtIPUA()
+  } else {
+    netIPUA()
+  }
+  netHiveLog({action: 2}, 'luodiyelogClick_click_'+ PlatformConfig.logId +'_' + domName)
+  if(enter_script === '3'){
+    ttq.track('ClickButton')
+  }else{
+    PlatformConfig.logParam.bline === 'ft' ? fbq("track", "FindLocation") : fbq("track", "FindLocation", { external_id : window.adjustObj.h5fingerPrint});
+  }
   const downloadUrl = isIos ? PlatformConfig.ios.shop : PlatformConfig.android.shop;
   copyTxt('.downloadBtn',
     () => {
@@ -22,31 +40,35 @@ $(".downloadBtn").on('click', () => {
 $(".mask, .popupClose").on('click', (e) => {
   $("#popup").attr("style", "display: none");
   $("body").removeAttr("style");
+
   e.preventDefault();
 })
 
-window.onload = function () {
-  netHiveLog({ action: 1 }, 'eventType_pv')
-
-  // $(".downloadBtn").on('click', () => {
-  //   copyTxt('.downloadBtn')
-  // })
-
+// 展示A书还是B书
+const isShowA = () => {
   const cookieData = getCookie(PlatformConfig.productName);
   if(!cookieData) {
-    setCookie(PlatformConfig.productName, JSON.stringify({ time: new Date().getTime(), sss: 'ssss' }))
+    setCookie(PlatformConfig.productName, JSON.stringify({ expressTime: new Date().getTime() }))
+    return true;
   } else {
-    const expressTime = JSON.parse(cookieData).time;
+    const expressTime = JSON.parse(cookieData).expressTime;
     const nowTime = new Date().getTime();
-    if (nowTime - expressTime >= 10 * 60 * 1000) {
-      setTimeout(() => {
-        $("#popup").attr("style", "display: flex");
-        $("body").attr("style", "overflow: hidden");
-      }, 2000)
-    }
+    return (isIos && nowTime - expressTime < 10 * 60 * 1000) || (isAndroid && nowTime - expressTime < 5 * 60 * 1000);
   }
-
 }
 
+window.onload = function () {
+  document.title = $(".imgTitle").text() || PlatformConfig.name
+  addFingerprint(); // 指纹
+  getChapterInfo(); // 获取当前章节位置
+  if (!isShowA()) {
+    setTimeout(() => {
+      $("#popup").attr("style", "display: flex");
+      $("body").attr("style", "overflow: hidden");
+    }, 5000)
+  }
+
+
+}
 
 

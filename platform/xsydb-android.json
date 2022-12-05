@@ -1,24 +1,16 @@
 {
-  "name": "小说阅读吧 安卓",
+  "name": "xsydb and",
+  "productName": "xsydb",
   "googleCode": "G-KMV3QH0B9M",
   "microsoftCode": "bd2lt7m40g",
-  "rem": {
-    "type": "vertical",
-    "horizontalWidth": 1624,
-    "verticalWidth": 750
-  },
   "adjustObj": {
     "bookId": "",
     "token": "",
     "cid": 0,
     "shareCode": 0
   },
-  "defaultChannelCode": {
-    "ios": "GSIZ1000001",
-    "android": "GSAZ1000001"
-  },
   "logParam": {
-    "bline": "",
+    "bline": "ft",
     "pline": "",
     "pkna": "",
     "app_version": "1.0.0",
@@ -29,12 +21,19 @@
   },
   "logDataType": "xxx_luodiye_xxx_",
   "clientId": "ftb_",
-  "downloadLink": {
-    "ios": "https://itunes.apple.com/us/app/id1517946671",
-    "android": "https://play.google.com/store/apps/details?id=com.webfic.novel"
+  "ios": {
+    "shop": "https://itunes.apple.com/us/app/id1517946671",
+    "pname": "com.zqzol.quanbenxiaoshuo",
+    "channelCode": "GSIZ1000001"
+  },
+  "android": {
+    "shop": "https://play.google.com/store/apps/details?id=com.webfic.novel",
+    "pname": "com.yj.xskd",
+    "channelCode": "GSAZ1000001"
   },
   "netUrl": {
     "ip": "https://api.gostory.com/gostory/ap001/remote",
-    "hive": "https://log.gostory.com/h5_standard_final_log.php"
+    "hive": "https://log.gostory.com/h5_standard_final_log.php",
+    "ipua": "https://sapi.webfic.com/webfic/ap001/cache/ua"
   }
 }
