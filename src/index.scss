@@ -3,49 +3,207 @@
   margin: 0;
   padding: 0;
 }
-html,
-body, #app{
+
+html, body, #app {
   width: 100%;
   height: 100%;
-  background-color: #f6f6f6;
+  background-color: #FFFFFF;
 }
+
 body {
-  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-body, html, #app {
-  width: 100vw;
-  height: 100vh;
-  background: #F7F9FB;
-  overflow: hidden;
+
+ul {
+  list-style: none;
 }
 
-ul{  list-style:none;  }
-
-a{
-  text-decoration:none !important;
+a {
+  text-decoration: none !important;
   cursor: pointer;
 }
 
 #app {
+  padding: 0.35rem 0.32rem;
+  background-color: #FFFFFF;
+}
+
+.container {
+  font-size: 0;
+  overflow-y: auto;
+
+  h1 {
+    font-size: 0.42rem;
+    font-weight: 500;
+    color: #27292A;
+    line-height: 0.59rem;
+  }
+
+  .img-box {
+    margin: 0.24rem 0 0.48rem;
+
+    img {
+      width: 100%;
+      height: 3.66rem;
+    }
+
+    .img-title {
+      margin-top: 0.08rem;
+      font-size: 0.35rem;
+      font-weight: 500;
+      color: #F55031;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .intro {
+    font-size: 0.36rem;
+    color: #27292A;
+    line-height: 0.56rem;
+  }
+
+}
+
+.downloadBtn {
+  position: absolute;
+  bottom: 0.2rem;
+  width: 6.4rem;
+  height: 0.88rem;
+  left: calc(50% - 3.2rem);
+  z-index: 99;
+  border-radius: 0.44rem;
+  font-size: 0.32rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: 0.02rem;
+  background-color: #FF6033;
+  border: none;
+}
+
+.popupWrap {
+  position: fixed;
+  width: 102vw;
+  height: 102vh;
+  left: -1vw;
+  top: -1vh;
+  z-index: 9;
   display: flex;
-  width: 375px;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-  flex-direction: column;
   align-items: center;
-  background:linear-gradient(90deg,rgba(255,125,3,1),rgba(255,96,9,1));
-  font-size: 14px;
-}
-header {
-  width: 100%;
-  height: 336px;
-}
-.component1 {
-  background:linear-gradient(90deg,rgba(255,125,3,1),rgba(255,96,9,1));
-}
+  justify-content: center;
 
+  .mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;
+  }
 
+  .popupContainer {
+    padding: 0.8rem 0.48rem;
+    width: 6.24rem;
+    height: 6.04rem;
+    background-color: #FFF4F0;
+    box-shadow: 0 0.16rem 0.64rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.16rem;
+    border: 1px solid #DADADA;
+    overflow: hidden;
+    position: relative;
+    z-index: 9;
+
+    .popupClose {
+      width: 0.24rem;
+      height: 0.24rem;
+      position: absolute;
+      top: 0.32rem;
+      right: 0.32rem;
+      z-index: 1;
+    }
+
+    .ornamentLeft, .ornamentRight {
+      width: 1.14rem;
+      height: 1.18rem;
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+    }
+
+    .ornamentLeft {
+      left: 0;
+    }
+
+    .ornamentRight {
+      right: 0;
+      transform: rotate(270deg);
+    }
+
+    .titleBox {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 0.4rem;
+
+      .line1, .line2 {
+        display: inline-block;
+        width: 0.08rem;
+        height: 0.24rem;
+        background-color: #FFE656;
+        border-radius: 0.04rem;
+      }
+
+      .line2 {
+        height: 0.32rem;
+        background-color: #FF6033;
+        margin: 0 0.06rem;
+      }
+
+      span {
+        display: inline-block;
+        font-size: 0.40rem;
+        font-weight: 500;
+        color: #27292A;
+        padding: 0 0.1rem;
+      }
+    }
+
+    .popupImgBox {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .imgItem {
+        font-size: 0;
+        width: 1.6rem;
+
+        img {
+          width: 100%;
+          height: 2.12rem;
+          border-radius: 0.04rem;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin-bottom: 0.16rem;
+          overflow: hidden;
+        }
+
+        .title {
+          font-size: 0.24rem;
+          font-weight: 400;
+          color: #27292A;
+          line-height: 0.36rem;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+      }
+
+    }
+  }
+
+}
 
 

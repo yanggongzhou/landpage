@@ -9,8 +9,9 @@
 </head>
 <body>
 <div id="app">
-    <%= require('./component/downloadButton.html').default %>
     <%= require('./index.html').default %>
+    <%= require('./component/downloadButton.html').default %>
+    <%= require('./component/popup.html').default %>
 </div>
 <%= htmlWebpackPlugin.options.script_zepto %>
 <%= htmlWebpackPlugin.options.script_clipboard %>
