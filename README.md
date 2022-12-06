@@ -53,6 +53,6 @@ platform
 
 jenkins: http://192.168.0.60:1808/jenkins/job/TEST-hwyc_landpage_model/
 
-测试环境： https://landpage.hw.dzods.cn/landpage_model/v3/xx.html
+测试环境： https://landpage.hw.dzods.cn/landpage_model/v3/xsdq.html
 
 
