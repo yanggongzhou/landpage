@@ -23,7 +23,6 @@ const onDownload = throttle((e) => {
   } else {
     window.recommendObj = undefined;
   }
-
   window.allowPvIPUA = false;
   if (['1', '2', '3', '4'].indexOf(model_productid) !== -1) {
     netFtIPUA()
@@ -93,6 +92,9 @@ languageSwitching(); // 设置语言
 addFingerprint(); // 指纹
 getChapterInfo(); // 监听当前章节位置
 printRecommendBookDom(); // 渲染推荐书籍
+// 设置主题色
+document.querySelector('.downloadText').setAttribute('style', `color: ${PlatformConfig.color}`)
+document.querySelector('.imgTitle').setAttribute('style', `color: ${PlatformConfig.color}`)
 
 window.onload = function () {
   if (!isShowA()) {
