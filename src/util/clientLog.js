@@ -4,7 +4,7 @@ import { isIos } from "./other";
 const { ios, android, netUrl } = PlatformConfig;
 
 // 大数据打点
-export const netHiveLog = (data = {}, eventType = '') => {
+export const netHiveLog = (eventType = '', data = {}) => {
   const logData = getLogParams(data, eventType);
   $.ajax({
     type: "post",
@@ -25,12 +25,12 @@ export const netIP = () => {
           window.sessionStorage.setItem('DEVICE_IP', ip || '0.0.0.0');
           window.adjustObj.ip = ip || '0.0.0.0';
         } else {
-          netHiveLog({ action: 3 }, 'luodiyelogClick_click_'+ PlatformConfig.logId + '_requestStatus_failed')
+          netHiveLog(`luodiyelogClick_click_${PlatformConfig.logId}_requestStatus_failed`)
         }
       },
       error: function () {
         window.sessionStorage.setItem('DEVICE_IP', '0.0.0.0');
-        netHiveLog({ action: 3 }, 'luodiyelogClick_click_'+ PlatformConfig.logId + '_requestStatus_failed')
+        netHiveLog(`luodiyelogClick_click_${PlatformConfig.logId}_requestStatus_failed`)
       },
     })
 }

@@ -43,7 +43,7 @@ function searchFbp(status){
 }
 
 function startLogPvHandle() {
-  netHiveLog({ action: 1 }, 'luodiyelogPV_comein_' + PlatformConfig.logId)
+  netHiveLog( `luodiyelogPV_comein_${PlatformConfig.logId}`, { action: 1 })
   // 立即点击不会上报ua
   if(!window.allowPvIPUA) return
   // 统一下分是否进行上报

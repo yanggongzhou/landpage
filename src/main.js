@@ -9,7 +9,7 @@ import { throttle } from "./util/throttle-debounce";
 // 获取IP
 netIP();
 // 曝光
-netHiveLog({action: 1 }, 'luodiyelogPV_init_'+ PlatformConfig.logId)
+netHiveLog( `luodiyelogPV_init_${PlatformConfig.logId}`, {action: 1 })
 window.allowPvIPUA = true;
 // 下载事件
 const onDownload = throttle((e) => {
@@ -24,9 +24,9 @@ const onDownload = throttle((e) => {
   const downloadUrl = isIos ? PlatformConfig.ios.shop : PlatformConfig.android.shop;
   copyTxt(e.target.className, () => {
     window.location.href = downloadUrl
-    netHiveLog({ action: 2 }, 'findBug_'+PlatformConfig.logId+'_successjump')
+    netHiveLog( `findBug_${PlatformConfig.logId}_successjump`, { action: 2 })
   });
-  netHiveLog({action: 2}, 'luodiyelogClick_click_'+ PlatformConfig.logId +'_' + domName)
+  netHiveLog( `luodiyelogClick_click_${PlatformConfig.logId}_${domName}`, {action: 2})
   try {
     if(enter_script === '3'){
       ttq.track('ClickButton')
@@ -67,6 +67,7 @@ window.onload = function () {
     setTimeout(() => {
       $("#popup").attr("style", "display: flex");
       $("body").attr("style", "overflow: hidden");
+      netHiveLog( `Rec_window_view_${PlatformConfig.logId}`)
     }, 5000)
   }
 }

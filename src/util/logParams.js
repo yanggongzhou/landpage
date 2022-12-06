@@ -2,6 +2,7 @@ import { compile, GetQueryString, isAndroid, isIos, randomString } from './other
 import { getCookie } from "./cookie";
 
 const { logParam = {}, adjustObj, clientId, ios, android } = PlatformConfig;
+const log_id = randomString();
 
 export const getUserLandId = () => {
   const userlandId = window.localStorage.getItem('USER_LANDPID');
@@ -30,13 +31,13 @@ export const getAdjustParams = () => {
   const res = {
     ip: window.sessionStorage.getItem('DEVICE_IP') || "0.0.0.0",
     sex: model_sex,
-    log_id: randomString(),
+    log_id,
     h5uid: getUserLandId(),
     token: token,
     bookId,
     bid: bookId,
     channelCode,
-    cid: adjustObj.cid,
+    cid: window.adjustObj.cid || adjustObj.cid,
     shareCode: adjustObj.shareCode,
     url: window.location.href,
     fbp: getCookie("_fbp"),
@@ -44,16 +45,16 @@ export const getAdjustParams = () => {
     campaign_id: utm_content,
     campaign_name: utm_campaign,
     ua: navigator.userAgent,
-    h5fingerPrint: window.h5fingerPrint || '',
+    h5fingerPrint: window.adjustObj.h5fingerPrint || '',
     ttclid: GetQueryString('ttclid') || '0',
     media: enter_script === '3' ? 'tiktok' : 'facebook',
     enter_script,
     enter_fbscriptid,
-    currentFlag: window.currentFlag || 0,
+    currentFlag: window.adjustObj.currentFlag || 0,
   }
 
   if(enter_script !== '3'){
-    // 新增广告组配置
+    // 广告组配置
     const tf_ad = {
       tf_group_id: GetQueryString("ad_group_id") || '0',
       tf_group_name: GetQueryString("ad_group_name") || '0',
@@ -73,11 +74,12 @@ window.adjustObj = getAdjustParams();
  * 获取大数据打点参数
  */
 export const getLogParams = (data, eventType) => {
-  const adjustObj = window.adjustObj || getAdjustParams();
+  const adjustObj = getAdjustParams();
+  const date = new Date()
   return {
     ...logParam,
     log_id: randomString(), // 日志id 随机生成，16位字符串即可
-    cts: new Date().getTime(), // 客户端时间，精确到毫秒
+    cts: date.getTime(), // 客户端时间，精确到毫秒
     chid: adjustObj.channelCode, // 渠道号
     uid: getUserLandId(),
     pline: isIos ? 'ios': (isAndroid ? 'android' : 'incompatible'),
@@ -85,6 +87,7 @@ export const getLogParams = (data, eventType) => {
     event: eventType, // 事件名称
     data: {
       action: 3, // 1 pv | 2 按钮点击下载
+      logDate: date.toLocaleDateString().replace(/\//g, '-'),
       planId: adjustObj.campaign_id || '0',
       planName: adjustObj.campaign_name,
       clipboard: adjustObj,
