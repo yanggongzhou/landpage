@@ -22,7 +22,7 @@
 
 ##### script
 1. 剪切板 ClipboardJS
-2. zepto
+2. zepto // v3不用
 3. 微软分析
 4. 谷歌分析
 5. rem
@@ -30,47 +30,7 @@
 
 #### 公共参数 PlatformConfig  dev 环境默认取值 /platform 下第一个文件
 ```
-{
-  "name": "platform name",          // 平台名称
-  "googleCode": "G-KMV3QH0B9M",     // 谷歌分析code
-  "microsoftCode": "bd2lt7m40g",    // 微软分析code
-  "rem": {
-    "type": "vertical",             // 模式 值vertical｜horizontal 监听竖屏可设置horizontal 
-    "horizontalWidth": 1624,        // 横屏rem对比参数 模式为horizontal时需设置
-    "verticalWidth": 750            // 竖屏rem对比参数
-  },
-  "adjustObj": {                    // 大数据打点、剪切板等必要参数
-    "bookId": "",                   // 书籍ID
-    "token": "",                    // token
-    "cid": 0,                       // 章节ID
-    "shareCode": 0                  // 分享code
-  },
-  "defaultChannelCode": {
-    "ios": "GSIZ1000001",           // ios默认渠道号
-    "android": "GSAZ1000001"        // android默认渠道号
-  },
-  "logParam": {                     // 大数据打点等必要参数
-    "bline": "",
-    "pline": "",
-    "pkna": "",
-    "app_version": "1.0.0",
-    "imei": "",
-    "oaid": "",
-    "idfa": "",
-    "type": ""
-  },
-  "logDataType": "xxx_luodiye_xxx_", // 大数据打点自定义data type 必要参数
-  "clientId": "ftb_",                // 剪切板参数头部信息
-  "downloadLink": {                  // 下载商店链接
-    "ios": "https://itunes.apple.com/us/app/id1517946671",
-    "android": "https://play.google.com/store/apps/details?id=com.webfic.novel"
-  },
-  "netUrl": {
-    "ip": "https://api.gostory.com/gostory/ap001/remote",       // 服务端获取IP链接
-    "hive": "https://log.gostory.com/h5_standard_final_log.php" // 大数据链接
-  },
-  ....                                // 其余可根据项目需要自行配置
-}
+platform
 ```
 #### 目录简要
 
@@ -88,3 +48,11 @@
         -*.html                   // 其他 自定义组件等
 ---
 ```
+
+#### 环境
+
+jenkins: http://192.168.0.60:1808/jenkins/job/TEST-hwyc_landpage_model/
+
+测试环境： https://landpage.hw.dzods.cn/landpage_model/v3/xx.html
+
+
