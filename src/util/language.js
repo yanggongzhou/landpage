@@ -45,9 +45,12 @@ export function languageSwitching() {
   const downloadpDom = document.querySelector('.downloadp');
   if (PlatformConfig.logParam.bline === 'ft') {
     document.querySelector('.downloadText').innerText = ">>> 點擊繼續閱讀精彩內容"
-    if (!bookNo) return;
-    downloadpDom.innerHTML = '點擊進入應用，失敗時可下載APP繼續閱讀 <br/>下載APP在書城搜索書號: <span class="biaoji">' + '{{land_info.bookNo}}' + '</span> 就可以找到後續內容哦'
+  }
+  if (!bookNo) {
+    downloadpDom.setAttribute('style', 'display: none')
   } else {
-    downloadpDom.innerHTML = downloadpDom.textContent.replace('xxxx', `<span class="biaoji"> ${ bookNo } </span>`)
+    downloadpDom.innerHTML = PlatformConfig.logParam.bline === 'ft' ?
+      '點擊進入應用，失敗時可下載APP繼續閱讀 <br/>下載APP在書城搜索書號: <span class="biaoji">' + '{{land_info.bookNo}}' + '</span> 就可以找到後續內容哦' :
+      downloadpDom.textContent.replace('xxxx', `<span class="biaoji"> ${ bookNo } </span>`);
   }
 }

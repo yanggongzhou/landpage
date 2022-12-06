@@ -12,7 +12,9 @@ export const netHiveLog = (eventType = '', data = {}) => {
     method: "post",
     body: formData,
     keepalive: true
-  })
+  }).then(res => res.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success:', response))
 }
 // 获取Ip失败
 const getIpErr = () => {

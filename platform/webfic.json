@@ -16,8 +16,7 @@
     "app_version": "V3.1.0",
     "imei": "",
     "oaid": "",
-    "idfa": "",
-    "type": "luodiye"
+    "idfa": ""
   },
   "clientId": "wfb_",
   "ios": {

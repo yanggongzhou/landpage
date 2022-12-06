@@ -27,7 +27,8 @@ export const getAdjustParams = () => {
   } else {
     channelCode = isIos ? ios.channelCode : android.channelCode;
   }
-  const bookId = ((enter_script === '3' || model_productid==='8') ? campaignList[ 3 ] : campaignList[2]) || adjustObj.bookId;
+  // replaceId 是智投后台配置默认bookId
+  const bookId = ((enter_script === '3' || model_productid==='8') ? campaignList[ 3 ] : campaignList[2]) || replaceId || adjustObj.bookId;
   const recommendObj = window.recommendObj || {} // 推荐书籍数据
   const res = {
     ip: window.sessionStorage.getItem('DEVICE_IP') || "0.0.0.0",
@@ -56,7 +57,7 @@ export const getAdjustParams = () => {
   }
 
   if(enter_script !== '3'){
-    // 广告组配置
+    // facebook 广告组配置
     const tf_ad = {
       tf_group_id: GetQueryString("ad_group_id") || '0',
       tf_group_name: GetQueryString("ad_group_name") || '0',
@@ -87,12 +88,14 @@ export const getLogParams = (data, eventType) => {
     pline: isIos ? 'ios': (isAndroid ? 'android' : 'incompatible'),
     pkna: isIos ? ios.pname : android.pname,
     event: eventType, // 事件名称
+    type: "luodiye", // 智投/落地页必须是"luodiye"
     data: {
       action: 3, // 1 pv | 2 按钮点击下载
       logDate: date.toLocaleDateString().replace(/\//g, '-'),
       planId: adjustObj.campaign_id || '0',
       planName: adjustObj.campaign_name,
       clipboard: adjustObj,
+      myfbc: getCookie("_fbc") ? 'facebook' : 'dianzhong',
       ...adjustObj,
       ...data,
     }
