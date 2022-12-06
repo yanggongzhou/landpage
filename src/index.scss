@@ -118,6 +118,17 @@ a {
       letter-spacing: -0.015rem;
       text-align: center;
     }
+
+    .downloadp {
+      height: 0.64rem;
+      margin-top: 0.32rem;
+      padding: 0 0.32rem;
+      font-size: 0.24rem;
+      font-weight: 500;
+      color: #7D7F7F;
+      line-height: 0.32rem;
+    }
+
     .handImg {
       width: 5.1rem;
       height: 0.5rem;
@@ -282,6 +293,11 @@ a {
 
     }
   }
+}
+
+.biaoji {
+  color: #F55031;
+  font-weight: 600;
 }
 
 @keyframes popupShow {

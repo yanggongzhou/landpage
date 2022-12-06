@@ -6,6 +6,7 @@ import { getCookie, setCookie } from "./util/cookie";
 import { addFingerprint } from "./util/fingerprint";
 import getChapterInfo from "./util/getChapterInfo";
 import { throttle } from "./util/throttle-debounce";
+import { languageSwitching } from "./util/language";
 // 获取IP
 netIP();
 // 曝光
@@ -90,7 +91,8 @@ const printRecommendBookDom = () => {
 window.onload = function () {
   document.title = document.querySelector(".imgTitle").textContent || PlatformConfig.name
   addFingerprint(); // 指纹
-  getChapterInfo(); // 获取当前章节位置
+  getChapterInfo(); // 监听当前章节位置
+  languageSwitching(); // 设置语言
   printRecommendBookDom(); // 渲染推荐书籍
   if (!isShowA()) {
     setTimeout(() => {
