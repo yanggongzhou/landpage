@@ -4,7 +4,7 @@ import './index.scss';
 import { isAndroid, isIos } from "./util/other";
 import { getCookie, setCookie } from "./util/cookie";
 import { addFingerprint } from "./util/fingerprint";
-import getChapterInfo from "./util/getChapterId";
+import getChapterInfo from "./util/getChapterInfo";
 import { throttle } from "./util/throttle-debounce";
 // 获取IP
 netIP();

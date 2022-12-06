@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%= process.env.NODE_ENV === 'development' ? htmlWebpackPlugin.options.script_mock : '' %>
+<head><%= process.env.NODE_ENV === 'development' ? htmlWebpackPlugin.options.script_mock : '' %>
   <%= htmlWebpackPlugin.options.script_var %>
   <%= htmlWebpackPlugin.options.script_client %>
   <%= htmlWebpackPlugin.options.mateTag %>
