@@ -7,8 +7,8 @@ declare var fbq: typeof globalThis.fbq
 declare var PlatformConfig: typeof globalThis.PlatformConfig
 // @ts-ignore
 declare var Fingerprint2: typeof globalThis.Fingerprint2
-// // @ts-ignore
-// declare var land_info: typeof globalThis.land_info
+// @ts-ignore
+declare var land_info: typeof globalThis.land_info
 // @ts-ignore
 declare var enter_script: typeof globalThis.enter_script // 男女频等
 // @ts-ignore

@@ -13,8 +13,16 @@ netHiveLog( `luodiyelogPV_init_${PlatformConfig.logId}`, {action: 1 })
 window.allowPvIPUA = true;
 // 下载事件
 const onDownload = throttle((e) => {
-  console.log('e------------------------->', e.target.className, e.target.dataset.name)
+  console.log('e------------------------->',  e.target.className, e.target.dataset.name)
   const domName = e.target.dataset.name
+  // 推荐书籍下载
+  if(domName === 'Recommend') {
+    const bookId = e.target.dataset.bookid;
+    window.recommendObj = { bookId, bid: bookId, cid: 0, currentFlag: 0 }
+  } else {
+    window.recommendObj = undefined;
+  }
+
   window.allowPvIPUA = false;
   if (['1', '2', '3', '4'].indexOf(model_productid) !== -1) {
     netFtIPUA()
@@ -51,22 +59,39 @@ const isShowA = () => {
 }
 
 // 关闭推荐弹框
-const closePopup = (e) => {
-  document.getElementById('popup').setAttribute("style", "display: none")
-  document.body.removeAttribute("style")
-  e.preventDefault();
-}
-// 关闭推荐弹框
 const showPopup = () => {
   document.getElementById('popup').setAttribute("style", "display: flex")
   document.body.setAttribute("style", "overflow: hidden")
   netHiveLog( `Rec_window_view_${PlatformConfig.logId}`)
 }
 
+// 渲染推荐书籍
+const printRecommendBookDom = () => {
+  const popupImgDom = document.getElementById('popupImgDom');
+  const recommendDom = popup_books ? JSON.parse(popup_books).map(item => {
+    return `<figure class="popupImgItem">
+      <div class="popupItemMark" data-bookid="${item.bookId}" data-name="Recommend"></div>
+      <img src="${item.cover}" alt="">
+      <figcaption class="title">${item.bookName}</figcaption>
+    </figure>`;
+  }).join('') : ''
+  if (!recommendDom) return;
+  popupImgDom.innerHTML = recommendDom;
+  // 推荐书籍下载
+  setTimeout(() => {
+    // 推荐书籍下载
+    const recommendDomArr = document.querySelectorAll(".popupImgItem")
+    for (let i = 0; i < recommendDomArr.length; i ++) {
+      recommendDomArr[i].onclick = onDownload;
+    }
+  }, 0)
+}
+
 window.onload = function () {
   document.title = document.querySelector(".imgTitle").textContent || PlatformConfig.name
   addFingerprint(); // 指纹
   getChapterInfo(); // 获取当前章节位置
+  printRecommendBookDom(); // 渲染推荐书籍
   if (!isShowA()) {
     setTimeout(() => {
       showPopup()
@@ -75,23 +100,16 @@ window.onload = function () {
   // 下载按钮
   const downloadDomArr = document.querySelectorAll(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title")
   for (let i = 0; i < downloadDomArr.length; i ++) {
-    downloadDomArr[i].addEventListener('click', onDownload)
+    downloadDomArr[i].onclick = onDownload;
   }
   // 关闭推荐弹框
   const popupCloseDomArr = document.querySelectorAll(".mask, .popupClose")
   for (let i = 0; i < popupCloseDomArr.length; i ++) {
-    popupCloseDomArr[i].addEventListener('click', closePopup)
-  }
-}
-window.onbeforeunload = function () {
-  const downloadDomArr = document.querySelectorAll(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title")
-  for (let i = 0; i < downloadDomArr.length; i ++) {
-    downloadDomArr[i].removeEventListener('click', onDownload)
-  }
-  // 关闭推荐弹框
-  const popupCloseDomArr = document.querySelectorAll(".mask, .popupClose")
-  for (let i = 0; i < popupCloseDomArr.length; i ++) {
-    popupCloseDomArr[i].removeEventListener('click', closePopup)
+    popupCloseDomArr[i].onclick = function (e) {
+      document.getElementById('popup').setAttribute("style", "display: none")
+      document.body.removeAttribute("style")
+      e.preventDefault();
+    }
   }
 }
 

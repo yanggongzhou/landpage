@@ -30,11 +30,14 @@ a {
 #app {
   padding: 0.35rem 0.32rem;
   background-color: #FFFFFF;
+  height: auto;
+  min-height: 100%;;
 }
 
 .container {
   font-size: 0;
   overflow-y: auto;
+  padding-bottom: 2rem;
 
   h1 {
     font-size: 0.42rem;
@@ -168,7 +171,7 @@ a {
   }
 
   .popupContainer {
-    padding: 0.8rem 0.48rem;
+    padding: 0.8rem 0.36rem;
     width: 6.24rem;
     height: 6.04rem;
     background-color: #FFF4F0;
@@ -238,11 +241,22 @@ a {
     .popupImgBox {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center;
 
-      .imgItem {
+      .popupImgItem {
         font-size: 0;
-        width: 1.6rem;
+        width: 1.84rem;
+        padding: 0 0.12rem;
+        position: relative;
+
+        .popupItemMark {
+          width: 1.84rem;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 9;
+        }
 
         img {
           width: 100%;
@@ -251,6 +265,7 @@ a {
           border: 1px solid rgba(0, 0, 0, 0.1);
           margin-bottom: 0.16rem;
           overflow: hidden;
+          background-color: #FFE8DF;
         }
 
         .title {

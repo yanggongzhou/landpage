@@ -28,7 +28,7 @@ export const getAdjustParams = () => {
     channelCode = isIos ? ios.channelCode : android.channelCode;
   }
   const bookId = ((enter_script === '3' || model_productid==='8') ? campaignList[ 3 ] : campaignList[2]) || adjustObj.bookId;
-
+  const recommendObj = window.recommendObj || {} // 推荐书籍数据
   const res = {
     ip: window.sessionStorage.getItem('DEVICE_IP') || "0.0.0.0",
     sex: model_sex,
@@ -52,6 +52,7 @@ export const getAdjustParams = () => {
     enter_script,
     enter_fbscriptid,
     currentFlag: window.adjustObj.currentFlag || 0,
+    ...recommendObj,
   }
 
   if(enter_script !== '3'){
