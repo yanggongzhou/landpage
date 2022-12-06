@@ -1,9 +1,11 @@
 {
-  "name": "小说大全",
+  "name": "小說大全",
   "productName": "xsdq",
+  "logId": "daquan",
+  "id": "1",
   "adjustObj": {
     "bookId": "",
-    "token": "",
+    "token": "d25yw4",
     "cid": 0,
     "shareCode": 0
   },
@@ -17,18 +19,18 @@
   },
   "clientId": "ftb_",
   "ios": {
-    "shop": "https://itunes.apple.com/us/app/id1517946671",
-    "pname": "com.zqzol.quanbenxiaoshuo",
-    "channelCode": "GSIZ1000001"
+    "shop": "https://apps.apple.com/us/app/id1478104721",
+    "pname": "com.yjtx.xiaoshuodaquan",
+    "channelCode": "WFEB00001"
   },
   "android": {
-    "shop": "https://play.google.com/store/apps/details?id=com.webfic.novel",
-    "pname": "com.yj.xskd",
-    "channelCode": "GSAZ1000001"
+    "shop": "https://play.google.com/store/apps/details?id=com.dz.xsdq",
+    "pname": "com.dz.xsdq",
+    "channelCode": "WFEB00001"
   },
   "netUrl": {
-    "ip": "https://api.gostory.com/gostory/ap001/remote",
-    "hive": "https://log.gostory.com/h5_standard_final_log.php",
-    "ipua": "https://sapi.webfic.com/webfic/ap001/cache/ua"
+    "ip": "https://api.klynf.com/asg/remote",
+    "hive": "https://log.klynf.com/h5_stand_final_log.php",
+    "ipua": "https://api.klynf.com/asg/cacheua.do"
   }
 }

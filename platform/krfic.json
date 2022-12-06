@@ -1,36 +1,36 @@
 {
   "name": "krfic",
-  "productName": "gs",
+  "productName": "kf",
   "logId": "krfic",
-
+  "id": "8",
   "adjustObj": {
     "bookId": "",
-    "token": "",
+    "token": "d25yw4",
     "cid": 0,
     "shareCode": 0
   },
   "logParam": {
-    "bline": "gs",
+    "bline": "kf",
     "app_version": "V3.1.0",
     "imei": "",
     "oaid": "",
     "idfa": "",
     "type": "luodiye"
   },
-  "clientId": "gsb_",
+  "clientId": "kfb_",
   "ios": {
-    "shop": "https://itunes.apple.com/us/app/id1517946671",
-    "pname": "com.zqzol.quanbenxiaoshuo",
-    "channelCode": "GSIZ1000001"
+    "shop": "https://apps.apple.com/us/app/id1517946671",
+    "pname": "",
+    "channelCode": "WFEB00001"
   },
   "android": {
-    "shop": "https://play.google.com/store/apps/details?id=com.webfic.novel",
-    "pname": "com.yj.xskd",
-    "channelCode": "GSAZ1000001"
+    "shop": "https://play.google.com/store/apps/details?id=com.booksource.krfic",
+    "pname": "",
+    "channelCode": "WFEB00001"
   },
   "netUrl": {
-    "ip": "https://api.gostory.com/gostory/ap001/remote",
-    "hive": "https://log.gostory.com/h5_standard_final_log.php",
-    "ipua": "https://sapi.webfic.com/webfic/ap001/cache/ua"
+    "ip": "https://api.krfic.com/krfic/ap001/remote",
+    "hive": "https://log.krfic.com/h5_stand_final_log.php",
+    "ipua": "https://api.krfic.com/krfic/ap001/cache/ua"
   }
 }

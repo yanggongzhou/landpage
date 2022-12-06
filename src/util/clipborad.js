@@ -1,20 +1,30 @@
 import { getCopyText } from "./logParams";
-import { netFtIPUA } from "./clientLog";
 
-const copyTxt = (classname = '.downloadBtn', successfun, errorfun) => {
-  const text = getCopyText()
-
-  netFtIPUA(text);
-  (document.querySelector(classname)[0] || document.querySelector(classname))
-    .setAttribute("data-clipboard-text", text);
-  const clip = new ClipboardJS(classname);
+const copyTxt = (classname = 'downloadBtn', callback) => {
+  let isJumpToStore = false;
+  const _classname = `.${classname}`;
+  document.querySelector(_classname)
+    .setAttribute("data-clipboard-text", getCopyText());
+  const clip = new ClipboardJS(_classname);
   clip.on('success', function(e) {
     e.clearSelection();
-    successfun && successfun()
+    if (isJumpToStore) return
+    callback && callback()
+    isJumpToStore = true
+    clearTimeout(timer);
   });
   clip.on('error', function(e) {
-    errorfun && errorfun()
+    if (isJumpToStore) return
+    callback && callback()
+    isJumpToStore = true
+    clearTimeout(timer);
   });
+  // 300 ms之后ClipboardJS没有回调就执行, 兼容部分机型ClipboardJS没有回调
+  let timer = setTimeout(function(){
+    if (isJumpToStore) return
+    callback && callback()
+    isJumpToStore = true
+  }, 300);
 }
 
 export default copyTxt;

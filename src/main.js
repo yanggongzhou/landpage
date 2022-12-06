@@ -5,14 +5,15 @@ import { isAndroid, isIos } from "./util/other";
 import { getCookie, setCookie } from "./util/cookie";
 import { addFingerprint } from "./util/fingerprint";
 import getChapterInfo from "./util/getChapterId";
-// 曝光
-netFtIPUA({action: 1 }, 'luodiyelogPV_init_'+ PlatformConfig.logId)
+import { throttle } from "./util/throttle-debounce";
 // 获取IP
 netIP();
+// 曝光
+netHiveLog({action: 1 }, 'luodiyelogPV_init_'+ PlatformConfig.logId)
 window.allowPvIPUA = true;
-// 下载按钮
-$(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title").on('click', (e) => {
-  console.log('e------->', e.target.dataset.name)
+// 下载事件
+const onDownload = throttle((e) => {
+  console.log('e------------------------->', e.target.className, e.target.dataset.name)
   const domName = e.target.dataset.name
   window.allowPvIPUA = false;
   if (['1', '2', '3', '4'].indexOf(model_productid) !== -1) {
@@ -20,21 +21,22 @@ $(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topNam
   } else {
     netIPUA()
   }
-  netHiveLog({action: 2}, 'luodiyelogClick_click_'+ PlatformConfig.logId +'_' + domName)
-  if(enter_script === '3'){
-    ttq.track('ClickButton')
-  }else{
-    PlatformConfig.logParam.bline === 'ft' ? fbq("track", "FindLocation") : fbq("track", "FindLocation", { external_id : window.adjustObj.h5fingerPrint});
-  }
   const downloadUrl = isIos ? PlatformConfig.ios.shop : PlatformConfig.android.shop;
-  copyTxt('.downloadBtn',
-    () => {
-      window.location.href = downloadUrl
-    },
-    () => {
-      window.location.href = downloadUrl
-    })
-})
+  copyTxt(e.target.className, () => {
+    window.location.href = downloadUrl
+    netHiveLog({ action: 2 }, 'findBug_'+PlatformConfig.logId+'_successjump')
+  });
+  netHiveLog({action: 2}, 'luodiyelogClick_click_'+ PlatformConfig.logId +'_' + domName)
+  try {
+    if(enter_script === '3'){
+      ttq.track('ClickButton')
+    } else {
+      PlatformConfig.logParam.bline === 'ft' ? fbq("track", "FindLocation") : fbq("track", "FindLocation", { external_id : window.adjustObj.h5fingerPrint});
+    }
+  } catch (e) {}
+}, 500)
+// 下载按钮
+$(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title").on('click', onDownload)
 
 // 关闭推荐弹框
 $(".mask, .popupClose").on('click', (e) => {
@@ -67,8 +69,6 @@ window.onload = function () {
       $("body").attr("style", "overflow: hidden");
     }, 5000)
   }
-
-
 }
 
 

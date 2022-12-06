@@ -32,7 +32,7 @@ export const getAdjustParams = () => {
     sex: model_sex,
     log_id: randomString(),
     h5uid: getUserLandId(),
-    token: token || "d25yw4",
+    token: token,
     bookId,
     bid: bookId,
     channelCode,

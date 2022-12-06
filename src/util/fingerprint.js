@@ -1,7 +1,6 @@
 import { getCookie } from "./cookie";
 import { netFtIPUA, netHiveLog, netIPUA } from "./clientLog";
 // 指纹
-
 export const addFingerprint = () => {
   Fingerprint2.get({ excludes: { enumerateDevices: true, deviceMemory: true, audio: true } }, function (components) {
     const values = components.map(function (component, index) {
@@ -10,9 +9,13 @@ export const addFingerprint = () => {
     const murmur = PlatformConfig.productName + '_' + Fingerprint2.x64hash128(values.join(""), 31);
     window.adjustObj.h5fingerPrint = murmur;
     if(enter_script !== '3'){
-      fbq('init' , enter_fbscriptid , { external_id : murmur});
-      fbq('track', 'PageView', { external_id : murmur});
-      searchFbp(getCookie("_fbp"))
+      try {
+        fbq('init' , enter_fbscriptid , { external_id : murmur});
+        fbq('track', 'PageView', { external_id : murmur});
+        searchFbp(getCookie("_fbp"))
+      } catch (e) {
+        startLogPvHandle()
+      }
     }else{
       startLogPvHandle()
     }
@@ -22,7 +25,7 @@ export const addFingerprint = () => {
 function searchFbp(status){
   window.fbcSearcchTimer = setInterval(function() {
     console.log('开始轮询',status,document.cookie);
-    if(document.cookie.indexOf("_fbp") == -1)return
+    if(document.cookie.indexOf("_fbp") === -1) return
     console.log('轮询结束');
     clearTimer()
     startLogPvHandle()

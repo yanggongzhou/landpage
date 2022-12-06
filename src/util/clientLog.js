@@ -24,14 +24,13 @@ export const netIP = () => {
           const ip = res.data.ip.toString().replace("\n", "");
           window.sessionStorage.setItem('DEVICE_IP', ip || '0.0.0.0');
           window.adjustObj.ip = ip || '0.0.0.0';
-          netHiveLog({ status: res.status }, 'event_remote_success')
         } else {
-          netHiveLog({ status: res.status }, 'event_remote_err')
+          netHiveLog({ action: 3 }, 'luodiyelogClick_click_'+ PlatformConfig.logId + '_requestStatus_failed')
         }
       },
       error: function () {
         window.sessionStorage.setItem('DEVICE_IP', '0.0.0.0');
-        netHiveLog({}, 'event_remote_err');
+        netHiveLog({ action: 3 }, 'luodiyelogClick_click_'+ PlatformConfig.logId + '_requestStatus_failed')
       },
     })
 }
