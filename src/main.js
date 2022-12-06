@@ -88,12 +88,13 @@ const printRecommendBookDom = () => {
   }, 0)
 }
 
+document.title = document.querySelector(".imgTitle").textContent || PlatformConfig.name
+languageSwitching(); // 设置语言
+addFingerprint(); // 指纹
+getChapterInfo(); // 监听当前章节位置
+printRecommendBookDom(); // 渲染推荐书籍
+
 window.onload = function () {
-  document.title = document.querySelector(".imgTitle").textContent || PlatformConfig.name
-  addFingerprint(); // 指纹
-  getChapterInfo(); // 监听当前章节位置
-  languageSwitching(); // 设置语言
-  printRecommendBookDom(); // 渲染推荐书籍
   if (!isShowA()) {
     setTimeout(() => {
       showPopup()

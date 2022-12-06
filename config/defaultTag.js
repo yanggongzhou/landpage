@@ -78,7 +78,7 @@ const defaultTag = {
     var model_sex = land_info.model_sex;
     var fingerPrintPversion = 1;
     var popup_books = land_info.popup_books;
-    var bookNo = {{land_info.bookNo}}
+    var bookNo = '{{land_info.bookNo}}';
   </script>`
 }
 

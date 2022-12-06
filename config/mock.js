@@ -19,9 +19,12 @@ const land_info = {
 
 module.exports = `<script type="text/javascript" defer>
   var land_info = ${JSON.stringify(land_info)};
-
   window.addEventListener('load', () => {
     document.querySelector('.topImg').setAttribute('src', '${land_info.top_img}');
-    document.querySelector('.intro').innerHTML = '${JSON.stringify(book_content)}';
+    document.querySelector('.intro').innerHTML = ${JSON.stringify(book_content)};
+    document.querySelector('.h1Title').innerText = '${land_info.book_title}'
+    document.querySelector('.imgTitle').innerText = '${land_info.bookName}'
+    document.querySelector('.bookName').innerText = '${land_info.bookName}'
+    document.querySelector('.downloadBtn').setAttribute('style', 'background: ${land_info.btn_background}')
   })
 </script>`
