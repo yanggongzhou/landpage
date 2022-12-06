@@ -10,7 +10,7 @@ const config = {
     entry,
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: 'index.js',
         clean: {
             keep: /assets\//,
         },
@@ -22,7 +22,9 @@ const config = {
                 test: /\.js$/,
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),
-                use: 'babel-loader',
+                use: {
+                  loader: 'babel-loader',
+                },
             },
             {
                 test: /\.(sc|c)ss$/,
@@ -73,8 +75,6 @@ const config = {
         ...plugins,
     ],
     externals: {
-      "Zepto": 'window.Zepto',
-      "$": 'window.Zepto',
       'ClipboardJS': 'window.ClipboardJS'
     },
     optimization: {

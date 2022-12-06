@@ -35,16 +35,7 @@ const onDownload = throttle((e) => {
     }
   } catch (e) {}
 }, 500)
-// 下载按钮
-$(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title").on('click', onDownload)
 
-// 关闭推荐弹框
-$(".mask, .popupClose").on('click', (e) => {
-  $("#popup").attr("style", "display: none");
-  $("body").removeAttr("style");
-
-  e.preventDefault();
-})
 
 // 展示A书还是B书
 const isShowA = () => {
@@ -59,17 +50,48 @@ const isShowA = () => {
   }
 }
 
+// 关闭推荐弹框
+const closePopup = (e) => {
+  document.getElementById('popup').setAttribute("style", "display: none")
+  document.body.removeAttribute("style")
+  e.preventDefault();
+}
+// 关闭推荐弹框
+const showPopup = () => {
+  document.getElementById('popup').setAttribute("style", "display: flex")
+  document.body.setAttribute("style", "overflow: hidden")
+  netHiveLog( `Rec_window_view_${PlatformConfig.logId}`)
+}
+
 window.onload = function () {
-  document.title = $(".imgTitle").text() || PlatformConfig.name
+  document.title = document.querySelector(".imgTitle").textContent || PlatformConfig.name
   addFingerprint(); // 指纹
   getChapterInfo(); // 获取当前章节位置
   if (!isShowA()) {
     setTimeout(() => {
-      $("#popup").attr("style", "display: flex");
-      $("body").attr("style", "overflow: hidden");
-      netHiveLog( `Rec_window_view_${PlatformConfig.logId}`)
+      showPopup()
     }, 5000)
   }
+  // 下载按钮
+  const downloadDomArr = document.querySelectorAll(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title")
+  for (let i = 0; i < downloadDomArr.length; i ++) {
+    downloadDomArr[i].addEventListener('click', onDownload)
+  }
+  // 关闭推荐弹框
+  const popupCloseDomArr = document.querySelectorAll(".mask, .popupClose")
+  for (let i = 0; i < popupCloseDomArr.length; i ++) {
+    popupCloseDomArr[i].addEventListener('click', closePopup)
+  }
 }
-
+window.onbeforeunload = function () {
+  const downloadDomArr = document.querySelectorAll(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title")
+  for (let i = 0; i < downloadDomArr.length; i ++) {
+    downloadDomArr[i].removeEventListener('click', onDownload)
+  }
+  // 关闭推荐弹框
+  const popupCloseDomArr = document.querySelectorAll(".mask, .popupClose")
+  for (let i = 0; i < popupCloseDomArr.length; i ++) {
+    popupCloseDomArr[i].removeEventListener('click', closePopup)
+  }
+}
 

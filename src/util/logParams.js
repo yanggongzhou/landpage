@@ -13,6 +13,7 @@ export const getUserLandId = () => {
   }
   return userlandId;
 }
+window.adjustObj = {};
 
 export const getAdjustParams = () => {
   const utm_content = GetQueryString("utm_content") || '0';

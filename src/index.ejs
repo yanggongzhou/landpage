@@ -6,6 +6,8 @@
   <%= htmlWebpackPlugin.options.mateTag %>
   <%= htmlWebpackPlugin.options.script_rem %>
   <%= htmlWebpackPlugin.options.script_fingerprint %>
+  <!-- fb脚本动态注入 -->
+  {{land_info.facebook_javascript}}
 </head>
 <body>
 <div id="app">
@@ -13,7 +15,6 @@
   <%= require('./component/downloadButton.html').default %>
   <%= require('./component/popup.html').default %>
 </div>
-  <%= htmlWebpackPlugin.options.script_zepto %>
   <%= htmlWebpackPlugin.options.script_clipboard %>
   <%= process.env.NODE_ENV === 'development' ? htmlWebpackPlugin.options.script_vconsole : '' %>
 </body>
