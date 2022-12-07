@@ -14,14 +14,12 @@ netHiveLog( `luodiyelogPV_init_${PlatformConfig.logId}`, {action: 1 })
 window.allowPvIPUA = true;
 // 下载事件
 const onDownload = throttle((e) => {
-  console.log('e------------------------->',  e.target.className, e.target.dataset.name)
   const domName = e.target.dataset.name
-  // 推荐书籍下载
+  // 点击跳转时，如果是从推荐弹窗的书籍点击跳转的，打点带的参数书籍ID bookId为推荐书籍的， 剪切板还是A书的
   if(domName === 'Recommend') {
-    const bookId = e.target.dataset.bookid;
-    window.recommendObj = { bookId, bid: bookId, cid: 0, currentFlag: 0 }
+    netHiveLog( `luodiyelogClick_click_${PlatformConfig.logId}_${domName}`, { action: 2, bookId: e.target.dataset.bookid })
   } else {
-    window.recommendObj = undefined;
+    netHiveLog( `luodiyelogClick_click_${PlatformConfig.logId}_${domName}`, { action: 2 })
   }
   window.allowPvIPUA = false;
   if (['1', '2', '3', '4'].indexOf(model_productid) !== -1) {
@@ -34,7 +32,6 @@ const onDownload = throttle((e) => {
     window.location.href = downloadUrl
     netHiveLog( `findBug_${PlatformConfig.logId}_successjump`, { action: 2 })
   });
-  netHiveLog( `luodiyelogClick_click_${PlatformConfig.logId}_${domName}`, {action: 2})
   try {
     if(enter_script === '3'){
       ttq.track('ClickButton')

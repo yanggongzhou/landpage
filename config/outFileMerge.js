@@ -22,7 +22,7 @@ files.forEach(function (item, index) {
   }
 })
 
-const jsFile = fs.readFileSync('./dist/index.js', 'utf8').replace('//# sourceMappingURL=index.js.map', `//# sourceMappingURL=${BASE_URL}/landpage_model/v3/index.js.map`)
+const jsFile = fs.readFileSync('./dist/index.js', 'utf8').replace('//# sourceMappingURL=index.js.map', `//# sourceMappingURL=${BASE_URL}/landpage_model/v2/index.js.map`)
 console.log('--------读取jsFile------')
 const cssFile = fs.readFileSync('./dist/main.css', 'utf8')
 console.log('-------读取cssFile-—-----')
