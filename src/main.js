@@ -45,14 +45,22 @@ const onDownload = throttle((e) => {
 // 展示A书还是B书
 const isShowA = () => {
   const cookieData = getCookie(PlatformConfig.productName);
-  if(!cookieData) {
-    setCookie(PlatformConfig.productName, JSON.stringify({ expressTime: new Date().getTime() }))
-    return true;
-  } else {
-    const expressTime = JSON.parse(cookieData).expressTime;
-    const nowTime = new Date().getTime();
-    return (isIos && nowTime - expressTime < 10 * 60 * 1000) || (isAndroid && nowTime - expressTime < 5 * 60 * 1000);
+  try {
+    if(!cookieData || JSON.parse(cookieData).pathname !== window.location.pathname ) {
+      setCookie(PlatformConfig.productName, JSON.stringify({
+        expressTime: new Date().getTime(),
+        pathname: window.location.pathname
+      }))
+      return true;
+    } else {
+      const expressTime = JSON.parse(cookieData).expressTime;
+      const nowTime = new Date().getTime();
+      return (isIos && nowTime - expressTime < 10 * 60 * 1000) || (isAndroid && nowTime - expressTime < 5 * 60 * 1000);
+    }
+
+  } catch (e) {
   }
+  return true;
 }
 
 // 关闭推荐弹框
