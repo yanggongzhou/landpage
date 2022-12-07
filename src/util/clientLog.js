@@ -12,9 +12,7 @@ export const netHiveLog = (eventType = '', data = {}) => {
     method: "post",
     body: formData,
     keepalive: true
-  }).then(res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response))
+  }).catch(error => console.error('Error:', error))
 }
 // 获取Ip失败
 const getIpErr = () => {
@@ -70,9 +68,7 @@ export function netIPUA() {
       'Content-Type': "application/json" // x-www-form-urlencoded"
     }),
     keepalive: true
-  }).then(res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
+  }).catch(error => console.error('Error:', error))
 }
 
 // 繁体上报IPUA
@@ -89,7 +85,5 @@ export function netFtIPUA(){
       'Content-Type': "application/json" // x-www-form-urlencoded"
     }),
     keepalive: true
-  }).then(res => res.json())
-    .catch(error => console.error('Error:', error))
-    .then(response => console.log('Success:', response));
+  }).catch(error => console.error('Error:', error))
 }
