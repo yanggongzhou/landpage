@@ -5,8 +5,9 @@
   "scripts": {
     "lint": "eslint --ext .js, src",
     "serve": "webpack-dev-server --node-env=development  --mode=development ",
-    "build": "webpack --node-env production && node config/outConfig.js --progress --watch",
-    "merge": "node config/outConfig.js",
+    "build": "webpack --node-env production && node config/outFileMerge.js --progress --watch",
+    "build-test": "webpack --node-env production && node config/outFileMerge.js --progress --watch",
+    "build-stag": "webpack --node-env production && node config/outFileMerge.js --progress --watch",
     "dev": "webpack --node-env=development  --progress --watch"
   },
   "keywords": [],
