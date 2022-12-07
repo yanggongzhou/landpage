@@ -27,7 +27,8 @@ export const netIP = () => {
     method: "get",
     keepalive: true
   }).then(response => {
-    response.json().then((res) => {
+    response.json()
+      .then((res) => {
       if (res.status === 200 || res.status === 0) {
         const ip = res.data.ip.toString().replace("\n", "");
         window.sessionStorage.setItem('DEVICE_IP', ip || '0.0.0.0');
@@ -35,8 +36,6 @@ export const netIP = () => {
       } else {
         getIpErr()
       }
-    }).catch(() => {
-      getIpErr()
     })
   }).catch(() => {
     getIpErr()

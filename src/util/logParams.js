@@ -28,7 +28,7 @@ export const getAdjustParams = () => {
     channelCode = isIos ? ios.channelCode : android.channelCode;
   }
   // replaceId 是智投后台配置默认bookId
-  const bookId = ((enter_script === '3' || model_productid==='8') ? campaignList[ 3 ] : campaignList[2]) || replaceId || adjustObj.bookId;
+  const bookId = ((enter_script === '3' || model_productid==='8') ? campaignList[ 3 ] : campaignList[2]) || replaceId || adjustObj.bid;
 
   const res = {
     ip: window.sessionStorage.getItem('DEVICE_IP') || "0.0.0.0",
@@ -36,7 +36,6 @@ export const getAdjustParams = () => {
     log_id,
     h5uid: getUserLandId(),
     token: token,
-    bookId,
     bid: bookId,
     channelCode,
     cid: window.adjustObj.cid || adjustObj.cid,
@@ -91,9 +90,11 @@ export const getLogParams = (data, eventType) => {
     data: {
       action: 3, // 1 pv | 2 按钮点击下载
       logDate: date.toLocaleDateString().replace(/\//g, '-'),
+      template: 'V3',
       planId: adjustObj.campaign_id || '0',
       planName: adjustObj.campaign_name,
       clipboard: adjustObj,
+      bookId: adjustObj.bid,
       myfbc: getCookie("_fbc") ? 'facebook' : 'dianzhong',
       ...adjustObj,
       ...data,
