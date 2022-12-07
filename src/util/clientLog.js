@@ -35,8 +35,6 @@ export const netIP = () => {
       } else {
         getIpErr()
       }
-    }).catch(() => {
-      getIpErr()
     })
   }).catch(() => {
     getIpErr()
