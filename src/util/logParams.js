@@ -91,6 +91,7 @@ export const getLogParams = (data, eventType) => {
     data: {
       action: 3, // 1 pv | 2 按钮点击下载
       logDate: date.toLocaleDateString().replace(/\//g, '-'),
+      template: "V2",
       planId: adjustObj.campaign_id || '0',
       planName: adjustObj.campaign_name,
       clipboard: adjustObj,
