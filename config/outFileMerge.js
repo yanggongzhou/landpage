@@ -10,7 +10,7 @@ let BASE_URL = 'https://landpage.hw.dzods.cn'
 // if (npmLifecycleEvent === 'build-test') {
 //   BASE_URL = 'https://landpage.hw.dzods.cn';
 // } else if (npmLifecycleEvent === 'build-stag') {
-//  
+//
 // }
 
 let platforms = []
