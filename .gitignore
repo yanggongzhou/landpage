@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+/config
 
 # Log files
 npm-debug.log*
@@ -15,4 +16,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+webpack.config.js
 
