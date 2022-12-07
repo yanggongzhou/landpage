@@ -13,7 +13,6 @@
 <div id="app">
   <%= require('./index.html').default %>
   <%= require('./component/downloadButton.html').default %>
-  <%= require('./component/popup.html').default %>
 </div>
   <%= htmlWebpackPlugin.options.script_clipboard %>
   <%= process.env.NODE_ENV === 'development' ? htmlWebpackPlugin.options.script_vconsole : '' %>

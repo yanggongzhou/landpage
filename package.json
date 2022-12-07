@@ -1,7 +1,7 @@
 {
-  "name": "v3-template",
-  "version": "1.0.0",
-  "description": "V3 模版",
+  "name": "v2-template",
+  "version": "6.0.0",
+  "description": "V2 模版",
   "scripts": {
     "lint": "eslint --ext .js, src",
     "serve": "webpack-dev-server --node-env=development  --mode=development ",
