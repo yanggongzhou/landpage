@@ -13,7 +13,7 @@ const copyTxt = (classname = 'downloadBtn', callback) => {
     isJumpToStore = true
     clearTimeout(timer);
   });
-  clip.on('error', function(e) {
+  clip.on('error', function() {
     if (isJumpToStore) return
     callback && callback()
     isJumpToStore = true

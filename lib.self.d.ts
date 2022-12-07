@@ -19,3 +19,5 @@ declare var model_productid: typeof globalThis.model_productid // 产品线
 declare var fingerPrintPversion: typeof globalThis.fingerPrintPversion // 指纹id p 参数
 // @ts-ignore
 declare var model_sex: typeof globalThis.model_sex // 智投嵌入性别
+// @ts-ignore
+declare var replaceId: typeof globalThis.replaceId // 智投嵌入兜底书籍ID
