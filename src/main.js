@@ -77,6 +77,7 @@ const printRecommendBookDom = () => {
     return `<figure class="popupImgItem">
       <div class="popupItemMark" data-bookid="${item.bookId}" data-name="Recommend"></div>
       <img src="${item.cover}" alt="">
+      <div class="popupImgBlur"></div>
       <figcaption class="title">${item.bookName}</figcaption>
     </figure>`;
   }).join('') : ''
