@@ -1,7 +1,7 @@
 import { getAdjustParams, getCopyText, getLogParams } from './logParams';
 import { isIos } from "./other";
 
-const { ios, android, netUrl } = PlatformConfig;
+const { ios, android, netUrl, logParam } = PlatformConfig;
 
 // 大数据打点
 export const netHiveLog = (eventType = '', data = {}) => {
@@ -30,9 +30,19 @@ export const netIP = () => {
     response.json()
       .then((res) => {
       if (res.status === 200 || res.status === 0) {
-        const ip = res.data.ip.toString().replace("\n", "");
-        window.sessionStorage.setItem('DEVICE_IP', ip || '0.0.0.0');
-        window.adjustObj.ip = ip || '0.0.0.0';
+        let _ip = ''
+        if (logParam.bline === 'ft' && typeof res.data === "string") {
+          _ip = res.data;
+        } else {
+          if (res.data && res.data.ip) {
+            _ip = res.data.ip;
+          } else {
+            _ip = res.data;
+          }
+        }
+        _ip = _ip.toString().replace("\n", "") || '0.0.0.0';
+        window.sessionStorage.setItem('DEVICE_IP', _ip);
+        window.adjustObj.ip = _ip;
       } else {
         getIpErr()
       }
