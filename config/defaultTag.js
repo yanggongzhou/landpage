@@ -13,7 +13,7 @@ const defaultTag = {
     (function (doc, win) {
       var resizeEvt = "orientationchange" in win ? "orientationchange" : "resize";
       var recalc = function () {
-        doc.documentElement.style.fontSize = 100 * (doc.documentElement.clientWidth / 750) + 'px'
+        doc.documentElement.style.fontSize = 100 * (doc.documentElement.clientWidth / 720) + 'px'
       };
       recalc();
       if (!doc.addEventListener) return;
