@@ -7,6 +7,8 @@ import { addFingerprint } from "./util/fingerprint";
 import getChapterInfo from "./util/getChapterInfo";
 import { throttle } from "./util/throttle-debounce";
 import { languageSwitching } from "./util/language";
+import defaultImg from './assets/images/default.png';
+
 // 获取IP
 netIP();
 // 曝光
@@ -76,7 +78,7 @@ const printRecommendBookDom = () => {
   const recommendDom = popup_books ? JSON.parse(popup_books).map(item => {
     return `<figure class="popupImgItem">
       <div class="popupItemMark" data-bookid="${item.bookId}" data-name="Recommend"></div>
-      <img src="${item.cover}" alt="">
+      <img class="popupItemImg" onerror="onImgErr()" src="${item.cover}" alt="">
       <div class="popupImgBlur"></div>
       <figcaption class="title">${item.bookName}</figcaption>
     </figure>`;
@@ -90,7 +92,16 @@ const printRecommendBookDom = () => {
     for (let i = 0; i < recommendDomArr.length; i ++) {
       recommendDomArr[i].onclick = onDownload;
     }
+
+    const imgDom = document.querySelectorAll(".popupItemImg")
+    for (let i = 0; i < imgDom.length; i ++) {
+      imgDom[i].onerror = imgErr;
+    }
   }, 0)
+}
+// 兜底图
+const imgErr = (e) => {
+  e.target.src = defaultImg
 }
 
 document.title = document.querySelector(".imgTitle").textContent || PlatformConfig.name

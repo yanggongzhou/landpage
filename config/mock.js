@@ -13,7 +13,7 @@ const land_info = {
   chapter_id:'532197482,532197483,532197484,532197485,532197486,532197487,532197488',
   bookNo: 3058,
   btn_background: 'linear-gradient(135deg, #FF8500 0%, #FFCE00 100%)',
-  popup_books: '[{"cover":"https://www.runoob.com/try/demo_source/img_pulpit.jpg","bookName":"我在武俠遊戲裏修仙","bookId":"11111"},{"cover":"https://www.runoob.com/try/demo_source/img_pulpit.jpg","bookName":"我在武俠遊戲裏修仙222","bookId":"22222"}]',
+  popup_books: '[{"cover":"https://www.runoob.com/try/demo_source/img_pulpit111.jpg","bookName":"我在武俠遊戲裏修仙","bookId":"11111"},{"cover":"https://www.runoob.com/try/demo_source/img_pulpit.jpg","bookName":"我在武俠遊戲裏修仙222","bookId":"22222"}, {"cover":"https://www.runoob.com/try/demo_source/img_pulpit.jpg","bookName":"我在武俠遊戲裏修仙222","bookId":"22222"}]',
 }
 // var land_info = ${JSON.stringify(land_info)};
 

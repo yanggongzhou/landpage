@@ -3,7 +3,7 @@ import { getCookie } from "./cookie";
 
 const { logParam = {}, adjustObj, clientId, ios, android } = PlatformConfig;
 const log_id = randomString();
-
+// 用户ID
 export const getUserLandId = () => {
   const userlandId = window.localStorage.getItem('USER_LANDPID');
   if (!userlandId) {
@@ -14,7 +14,7 @@ export const getUserLandId = () => {
   return userlandId;
 }
 window.adjustObj = {};
-
+// 剪切板参数
 export const getAdjustParams = () => {
   const utm_content = GetQueryString("utm_content") || '0';
   const utm_campaign = GetQueryString("utm_campaign") || '0';
