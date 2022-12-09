@@ -46,12 +46,12 @@ const onDownload = throttle((e) => {
 
 // 展示A书还是B书
 const isShowA = () => {
-  const cookieData = getCookie(PlatformConfig.productName);
+  const cookieData = getCookie('dz_hw_ldy');
   try {
-    if(!cookieData || JSON.parse(cookieData).pathname !== window.location.pathname ) {
-      setCookie(PlatformConfig.productName, JSON.stringify({
+    if(!cookieData || JSON.parse(cookieData).bookId !== replaceId ) {
+      setCookie('dz_hw_ldy', JSON.stringify({
         expressTime: new Date().getTime(),
-        pathname: window.location.pathname
+        bookId: replaceId,
       }))
       return true;
     } else {
@@ -78,7 +78,7 @@ const printRecommendBookDom = () => {
   const recommendDom = popup_books ? JSON.parse(popup_books).map(item => {
     return `<figure class="popupImgItem">
       <div class="popupItemMark" data-bookid="${item.bookId}" data-name="Recommend"></div>
-      <img class="popupItemImg" onerror="onImgErr()" src="${item.cover}" alt="">
+      <img class="popupItemImg" src="${item.cover}" alt="">
       <div class="popupImgBlur"></div>
       <figcaption class="title">${item.bookName}</figcaption>
     </figure>`;
