@@ -38,7 +38,6 @@ const onDownload = throttle((e) => {
 document.title = document.querySelector(".imgTitle").textContent || PlatformConfig.name
 languageSwitching(); // 设置语言
 addFingerprint(); // 指纹
-getChapterInfo(); // 监听当前章节位置
 // 设置主题色
 document.querySelector('.downloadText').setAttribute('style', `color: ${PlatformConfig.color}`)
 document.querySelector('.imgTitle').setAttribute('style', `color: ${PlatformConfig.color}`)
@@ -49,6 +48,6 @@ for (let i = 0; i < downloadDomArr.length; i ++) {
 }
 
 window.onload = function () {
-
+  getChapterInfo(); // 监听当前章节位置
 }
 
