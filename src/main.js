@@ -108,13 +108,13 @@ const imgErr = (e) => {
 document.title = document.querySelector(".imgTitle").textContent || PlatformConfig.name
 languageSwitching(); // 设置语言
 addFingerprint(); // 指纹
-getChapterInfo(); // 监听当前章节位置
 printRecommendBookDom(); // 渲染推荐书籍
 // 设置主题色
 document.querySelector('.downloadText').setAttribute('style', `color: ${PlatformConfig.color}`)
 document.querySelector('.imgTitle').setAttribute('style', `color: ${PlatformConfig.color}`)
 
 window.onload = function () {
+  getChapterInfo(); // 监听当前章节位置
   if (!isShowA()) {
     setTimeout(() => {
       showPopup()
