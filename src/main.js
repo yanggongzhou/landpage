@@ -8,6 +8,7 @@ import getChapterInfo from "./util/getChapterInfo";
 import { throttle } from "./util/throttle-debounce";
 import { languageSwitching } from "./util/language";
 import defaultImg from './assets/images/default.png';
+import { getAdjustParams } from "./util/logParams";
 
 // 获取IP
 netIP();
@@ -46,12 +47,13 @@ const onDownload = throttle((e) => {
 
 // 展示A书还是B书
 const isShowA = () => {
-  const cookieData = getCookie('dz_hw_ldy');
+  const { bid } = getAdjustParams();
+  if (!bid) return;
+  const cookieData = getCookie(`dz_ldy_${bid}`);
   try {
-    if(!cookieData || JSON.parse(cookieData).bookId !== replaceId ) {
-      setCookie('dz_hw_ldy', JSON.stringify({
+    if(!cookieData) {
+      setCookie( `dz_ldy_${bid}`, JSON.stringify({
         expressTime: new Date().getTime(),
-        bookId: replaceId,
       }))
       return true;
     } else {
@@ -59,7 +61,6 @@ const isShowA = () => {
       const nowTime = new Date().getTime();
       return (isIos && nowTime - expressTime < 10 * 60 * 1000) || (isAndroid && nowTime - expressTime < 5 * 60 * 1000);
     }
-
   } catch (e) {
   }
   return true;
