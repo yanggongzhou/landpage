@@ -18,7 +18,6 @@ window.allowPvIPUA = true;
 // 下载事件
 const onDownload = throttle((e) => {
   const domName = e.target.dataset.name
-  console.log('domName------>', domName)
   // 点击跳转时，如果是从推荐弹窗的书籍点击跳转的，打点带的参数书籍ID bookId为推荐书籍的， 剪切板还是A书的
   if(domName === 'Recommend') {
     netHiveLog( `luodiyelogClick_click_${PlatformConfig.logId}_${domName}`, { action: 2, bookId: e.target.dataset.bookid })
