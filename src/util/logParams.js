@@ -27,9 +27,14 @@ export const getAdjustParams = () => {
   } else {
     channelCode = isIos ? ios.channelCode : android.channelCode;
   }
+  // utm_campaign=__CAMPAIGN_NAME__&utm_content=__CAMPAIGN_ID__
   // replaceId 是智投后台配置默认bookId
-  const bookId = ((enter_script === '3' || model_productid==='8') ? campaignList[ 3 ] : campaignList[2]) || replaceId || adjustObj.bid;
-
+  let bookId = ((enter_script === '3' || model_productid==='8') ? campaignList[ 3 ] : campaignList[2]) || replaceId;
+  if (utm_campaign === '__CAMPAIGN_NAME__') {
+    bookId = replaceId;
+    token = adjustObj.token;
+    channelCode = isIos ? ios.channelCode : android.channelCode;
+  }
   const res = {
     ip: window.sessionStorage.getItem('DEVICE_IP') || "0.0.0.0",
     sex: model_sex,
