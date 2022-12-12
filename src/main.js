@@ -47,6 +47,7 @@ for (let i = 0; i < downloadDomArr.length; i ++) {
   downloadDomArr[i].onclick = onDownload;
 }
 
+getChapterInfo(); // 监听当前章节位置
 window.onload = function () {
   getChapterInfo(); // 监听当前章节位置
 }

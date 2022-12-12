@@ -17,7 +17,7 @@ const land_info = {
 }
 // var land_info = ${JSON.stringify(land_info)};
 
-module.exports = `<script type="text/javascript" defer>
+module.exports = `<script type="text/javascript">
   var land_info = ${JSON.stringify(land_info)};
   window.addEventListener('load', () => {
     document.querySelector('.topImg').setAttribute('src', '${land_info.top_img}');
