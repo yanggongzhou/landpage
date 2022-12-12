@@ -112,27 +112,29 @@ printRecommendBookDom(); // 渲染推荐书籍
 // 设置主题色
 document.querySelector('.downloadText').setAttribute('style', `color: ${PlatformConfig.color}`)
 document.querySelector('.imgTitle').setAttribute('style', `color: ${PlatformConfig.color}`)
+// 下载按钮
+const downloadDomArr = document.querySelectorAll(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title")
+for (let i = 0; i < downloadDomArr.length; i ++) {
+  downloadDomArr[i].onclick = onDownload;
+}
+// 关闭推荐弹框
+const popupCloseDomArr = document.querySelectorAll(".mask, .popupClose")
+for (let i = 0; i < popupCloseDomArr.length; i ++) {
+  popupCloseDomArr[i].onclick = function (e) {
+    document.getElementById('popup').setAttribute("style", "display: none")
+    document.body.removeAttribute("style")
+    e.preventDefault();
+  }
+}
 
+if (!isShowA()) {
+  setTimeout(() => {
+    showPopup()
+  }, 5000)
+}
+
+getChapterInfo(); // 监听当前章节位置
 window.onload = function () {
   getChapterInfo(); // 监听当前章节位置
-  if (!isShowA()) {
-    setTimeout(() => {
-      showPopup()
-    }, 5000)
-  }
-  // 下载按钮
-  const downloadDomArr = document.querySelectorAll(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title")
-  for (let i = 0; i < downloadDomArr.length; i ++) {
-    downloadDomArr[i].onclick = onDownload;
-  }
-  // 关闭推荐弹框
-  const popupCloseDomArr = document.querySelectorAll(".mask, .popupClose")
-  for (let i = 0; i < popupCloseDomArr.length; i ++) {
-    popupCloseDomArr[i].onclick = function (e) {
-      document.getElementById('popup').setAttribute("style", "display: none")
-      document.body.removeAttribute("style")
-      e.preventDefault();
-    }
-  }
 }
 

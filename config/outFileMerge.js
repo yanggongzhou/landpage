@@ -32,7 +32,7 @@ for (let i = 0; i < platforms.length; i++) {
   const htmlFile = fs.readFileSync(filepath, 'utf8')
   console.log('-------读取htmlFile-—-----')
   const replaceFile = htmlFile.replace(/<script defer src="index.js?[^*>]*><\/script[^>]*>/, 'replace_bandle_script')
-    .replace('replace_bandle_script', `<script id="bandle" defer type="text/javascript">${jsFile}</script>`)
+    .replace('replace_bandle_script', `<script id="bandle" type="text/javascript">${jsFile}</script>`)
     .replace(/<link href="main.css?[^*>]* rel="stylesheet">/, `<style type="text/css">${cssFile}</style>`)
   console.log('------替换js css map-—----')
   // fs.writeFile  写入文件（会覆盖之前的内容）（文件不存在就创建）  utf8参数可以省略

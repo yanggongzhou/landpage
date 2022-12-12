@@ -17,7 +17,7 @@ const plugins = platforms.map(plat => {
   return new HtmlWebpackPlugin({
     ...options,
     filename: `${plat.name}.html`,
-    script_client: `<script type="text/javascript" defer>var PlatformConfig = ${plat.config}</script>`
+    script_client: `<script type="text/javascript">var PlatformConfig = ${plat.config}</script>`
   });
 })
 
