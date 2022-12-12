@@ -18,6 +18,7 @@ window.allowPvIPUA = true;
 // 下载事件
 const onDownload = throttle((e) => {
   const domName = e.target.dataset.name
+  console.log('domName------>', domName)
   // 点击跳转时，如果是从推荐弹窗的书籍点击跳转的，打点带的参数书籍ID bookId为推荐书籍的， 剪切板还是A书的
   if(domName === 'Recommend') {
     netHiveLog( `luodiyelogClick_click_${PlatformConfig.logId}_${domName}`, { action: 2, bookId: e.target.dataset.bookid })
@@ -76,9 +77,9 @@ const showPopup = () => {
 // 渲染推荐书籍
 const printRecommendBookDom = () => {
   const popupImgDom = document.getElementById('popupImgDom');
-  const recommendDom = popup_books ? JSON.parse(popup_books).map(item => {
+  const recommendDom = popup_books ? JSON.parse(popup_books).map((item, index) => {
     return `<figure class="popupImgItem">
-      <div class="popupItemMark" data-bookid="${item.bookId}" data-name="Recommend"></div>
+      <div class="popupItemMark${index}" data-bookid="${item.bookId}" data-name="Recommend"></div>
       <img class="popupItemImg" src="${item.cover}" alt="">
       <div class="popupImgBlur"></div>
       <figcaption class="title">${item.bookName}</figcaption>
@@ -89,10 +90,12 @@ const printRecommendBookDom = () => {
   // 推荐书籍下载
   setTimeout(() => {
     // 推荐书籍下载
-    const recommendDomArr = document.querySelectorAll(".popupImgItem")
-    for (let i = 0; i < recommendDomArr.length; i ++) {
-      recommendDomArr[i].onclick = onDownload;
-    }
+    const recommendDom0 = document.querySelector(".popupItemMark0")
+    const recommendDom1 = document.querySelector(".popupItemMark1")
+    const recommendDom2 = document.querySelector(".popupItemMark2")
+    recommendDom0.onclick = onDownload;
+    recommendDom1.onclick = onDownload;
+    recommendDom2.onclick = onDownload;
 
     const imgDom = document.querySelectorAll(".popupItemImg")
     for (let i = 0; i < imgDom.length; i ++) {
