@@ -5,7 +5,7 @@ console.log('npm_lifecycle_event------>', npmLifecycleEvent)
 
 //'https://hwyc-res-qat.s3.ap-southeast-1.amazonaws.com';
 // 'https://landpage.hw.dzods.cn'
-let BASE_URL = 'https://hwyc-res-qat.s3.ap-southeast-1.amazonaws.com';
+let BASE_URL = 'https://lp.xskdaa.com';
 if (npmLifecycleEvent === 'build-test') {
   BASE_URL = 'https://landpage.hw.dzods.cn'
 } else if (npmLifecycleEvent === 'build-stag') {
