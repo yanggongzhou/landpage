@@ -13,10 +13,11 @@ export function randomString() {
 // 获取地址栏参数
 export function GetQueryString(name) {
   const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-  const r = window.location.search.substr(1).match(reg);
+  const r = decodeURI(decodeURI(window.location.search)).substr(1).match(reg);
   if (r !== null) {
     return unescape(r[ 2 ]);
   }
+  return "";
 }
 
 // 判断安卓ios
