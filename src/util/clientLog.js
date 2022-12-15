@@ -30,7 +30,7 @@ export const netIP = () => {
     response.json().then((res) => {
       if (res.status === 200 || res.status === 0) {
         let _ip;
-        if (logParam.bline === 'ft' && typeof res.data === "string") {
+        if (PlatformConfig.logParam.bline === 'ft' && typeof res.data === "string") {
           _ip = res.data;
         } else {
           if (res.data && res.data.ip) {
