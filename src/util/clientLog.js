@@ -1,7 +1,7 @@
 import { getAdjustParams, getCopyText, getLogParams } from './logParams';
 import { isIos } from "./other";
 
-const { ios, android, netUrl } = PlatformConfig;
+const { ios, android, netUrl, logParam, logId } = PlatformConfig;
 
 // 大数据打点
 export const netHiveLog = (eventType = '', data = {}) => {
@@ -17,7 +17,7 @@ export const netHiveLog = (eventType = '', data = {}) => {
 // 获取Ip失败
 const getIpErr = () => {
   window.sessionStorage.setItem('DEVICE_IP', '0.0.0.0');
-  netHiveLog(`luodiyelogClick_click_${PlatformConfig.logId}_requestStatus_failed`)
+  netHiveLog(`luodiyelogClick_click_${logId}_requestStatus_failed`)
 }
 // 获取Ip
 export const netIP = () => {
@@ -30,7 +30,7 @@ export const netIP = () => {
     response.json().then((res) => {
       if (res.status === 200 || res.status === 0) {
         let _ip;
-        if (PlatformConfig.logParam.bline === 'ft' && typeof res.data === "string") {
+        if (logParam.bline === 'ft' && typeof res.data === "string") {
           _ip = res.data;
         } else {
           if (res.data && res.data.ip) {
