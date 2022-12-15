@@ -6,6 +6,7 @@ import { addFingerprint } from "./util/fingerprint";
 import getChapterInfo from "./util/getChapterInfo";
 import { throttle } from "./util/throttle-debounce";
 import { languageSwitching } from "./util/language";
+import { getCopyText } from "./util/logParams";
 // 获取IP
 netIP();
 // 曝光
@@ -20,7 +21,17 @@ const onDownload = throttle((e) => {
   } else {
     netIPUA()
   }
-  const downloadUrl = isIos ? PlatformConfig.ios.shop : PlatformConfig.android.shop;
+  let downloadUrl = '';
+  if (isIos) {
+    if (model_productid == '5') {
+      downloadUrl = PlatformConfig.ios.deeplink + getCopyText()
+    } else {
+      downloadUrl = PlatformConfig.ios.shop;
+    }
+  } else {
+    downloadUrl = PlatformConfig.android.shop
+  }
+
   copyTxt(e.target.className, () => {
     window.location.href = downloadUrl
     netHiveLog( `findBug_${PlatformConfig.logId}_successjump`, { action: 2 })

@@ -21,6 +21,7 @@
   "clientId": "wfb_",
   "ios": {
     "shop": "https://apps.apple.com/us/app/id1517946671",
+    "deeplink": "https://sapi.webfic.com/open?clipboard=",
     "pname": "",
     "channelCode": "WFEB00001"
   },
