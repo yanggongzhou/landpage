@@ -55,6 +55,7 @@ export const getAdjustParams = () => {
     h5fingerPrint: window.adjustObj.h5fingerPrint || '',
     ttclid: GetQueryString('ttclid') || '0',
     media: enter_script === '3' ? 'tiktok' : 'facebook',
+    fingerPrintPversion: 1,
     enter_script,
     enter_fbscriptid,
     currentFlag: window.adjustObj.currentFlag || 0
@@ -109,6 +110,7 @@ export const getLogParams = (data, eventType) => {
       enter_fbscriptid,
       channelCode: adjustObj.channelCode,
       token: adjustObj.token,
+      fingerPrintPversion: 1,
       ...data,
     }
   }
