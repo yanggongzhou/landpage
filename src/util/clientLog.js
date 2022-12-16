@@ -6,11 +6,8 @@ const { ios, android, netUrl, logParam, logId } = PlatformConfig;
 // 大数据打点
 export const netHiveLog = (eventType = '', data = {}) => {
   const logData = getLogParams(data, eventType);
-  const formData = new FormData();
-  formData.append("json",JSON.stringify(logData));
-  fetch(netUrl.hive, {
-    method: "post",
-    body: formData,
+  fetch(netUrl.hive + `?json=${JSON.stringify(logData)}`, {
+    method: "get",
     keepalive: true
   }).catch(error => console.log('Error:', error))
 }
