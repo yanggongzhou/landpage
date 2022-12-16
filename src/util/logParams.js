@@ -22,14 +22,14 @@ export const getAdjustParams = () => {
   let channelCode;
   let token = adjustObj.token;
   if (utm_campaign && utm_campaign !== "0") {
-    channelCode = (enter_script === '3' || model_productid === '8') ? campaignList[ 2 ] : campaignList[1];
-    token = (enter_script === '3' || model_productid === '8') ? campaignList[ 4 ] : campaignList[3];
+    channelCode = (enter_script === '3' || PlatformConfig.id === '8') ? campaignList[ 2 ] : campaignList[1];
+    token = (enter_script === '3' || PlatformConfig.id === '8') ? campaignList[ 4 ] : campaignList[3];
   } else {
     channelCode = isIos ? ios.channelCode : android.channelCode;
   }
   // utm_campaign=__CAMPAIGN_NAME__&utm_content=__CAMPAIGN_ID__
   // replaceId 是智投后台配置默认bookId
-  let bookId = ((enter_script === '3' || model_productid==='8') ? campaignList[ 3 ] : campaignList[2]) || replaceId;
+  let bookId = ((enter_script === '3' || PlatformConfig.id ==='8') ? campaignList[ 3 ] : campaignList[2]) || replaceId;
   if (utm_campaign === '__CAMPAIGN_NAME__') {
     bookId = replaceId;
     token = adjustObj.token;

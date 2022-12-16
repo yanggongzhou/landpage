@@ -47,7 +47,7 @@ function startLogPvHandle() {
   // 立即点击不会上报ua
   if(!window.allowPvIPUA) return
   // 统一下分是否进行上报
-  if (['1', '2', '3', '4'].indexOf(model_productid) !== -1) {
+  if (['1', '2', '3', '4'].indexOf(PlatformConfig.id) !== -1) {
     netFtIPUA()
   } else {
     netIPUA()

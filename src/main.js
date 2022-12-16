@@ -16,14 +16,14 @@ window.allowPvIPUA = true;
 const onDownload = throttle((e) => {
   const domName = e.target.dataset.name
   window.allowPvIPUA = false;
-  if (['1', '2', '3', '4'].indexOf(model_productid) !== -1) {
+  if (['1', '2', '3', '4'].indexOf(PlatformConfig.id) !== -1) {
     netFtIPUA()
   } else {
     netIPUA()
   }
   let downloadUrl = '';
   if (isIos) {
-    if (model_productid == '5') {
+    if (PlatformConfig.id === '5') {
       downloadUrl = PlatformConfig.ios.deeplink + getCopyText()
     } else {
       downloadUrl = PlatformConfig.ios.shop;
