@@ -102,7 +102,13 @@ export const getLogParams = (data, eventType) => {
       clipboard: adjustObj,
       myfbc: getCookie("_fbc") ? 'facebook' : 'dianzhong',
       bookId: adjustObj.bid,
-      ...adjustObj,
+      ua: adjustObj.ua,
+      h5fingerPrint: adjustObj.h5fingerPrint,
+      sex: model_sex,
+      enter_script,
+      enter_fbscriptid,
+      channelCode: adjustObj.channelCode,
+      token: adjustObj.token,
       ...data,
     }
   }
