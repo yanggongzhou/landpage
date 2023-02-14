@@ -2,11 +2,14 @@ import { getAdjustParams, getCopyText, getLogParams } from './logParams';
 import { isIos } from "./other";
 
 const { ios, android, netUrl, logParam, logId } = PlatformConfig;
+const hiveUrl = netUrl.hive;
+const ipUrl = netUrl.base + netUrl.ip;
+const ipUaUrl = netUrl.base + netUrl.ipua;
 
 // 大数据打点
 export const netHiveLog = (eventType = '', data = {}) => {
   const logData = getLogParams(data, eventType);
-  fetch(netUrl.hive + `?json=${encodeURIComponent(JSON.stringify(logData))}`, {
+  fetch(hiveUrl + `?json=${encodeURIComponent(JSON.stringify(logData))}`, {
     method: "GET",
     keepalive: true
   }).catch(error => console.log('Error:', error))
@@ -20,7 +23,7 @@ const getIpErr = () => {
 export const netIP = () => {
   const sessionIP = window.sessionStorage.getItem('DEVICE_IP')
   if (sessionIP && sessionIP !== '0.0.0.0') return
-  fetch(netUrl.ip, {
+  fetch(ipUrl, {
     method: "get",
     keepalive: true
   }).then(response => {
@@ -65,7 +68,7 @@ export function netIPUA() {
     enter_script,
     clipboard: getCopyText(),
   }
-  fetch(netUrl.ipua, {
+  fetch(ipUaUrl, {
     method: "post",
     body: JSON.stringify(params),
     headers: new Headers({
@@ -82,7 +85,7 @@ export function netFtIPUA(){
     "ua": navigator.userAgent,
     "pname": isIos ? ios.pname : android.pname,
   }
-  fetch(netUrl.ipua, {
+  fetch(ipUaUrl, {
     method: "post",
     body: JSON.stringify(param),
     headers: new Headers({

@@ -31,8 +31,9 @@
     "channelCode": "WFEB00001"
   },
   "netUrl": {
-    "ip": "https://sapi.webfic.com/webfic/ap001/remote",
+    "base": "https://sapi.webfic.com/webfic/ap001/",
+    "ip": "remote",
     "hive": "https://log.webfic.com/h5_stand_final_log.php",
-    "ipua": "https://sapi.webfic.com/webfic/ap001/cache/ua"
+    "ipua": "cache/ua"
   }
 }

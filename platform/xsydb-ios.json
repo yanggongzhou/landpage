@@ -21,6 +21,7 @@
   "clientId": "ftb_",
   "ios": {
     "shop": "https://apps.apple.com/tw/app/id1512539334",
+    "deeplink": "https://api.kwread.com/open?clipboard=",
     "pname": "com.xsydbfcp.jxbxiaoshuoyueduba",
     "channelCode": "WFEB00001"
   },
@@ -30,8 +31,10 @@
     "channelCode": "WFEB00001"
   },
   "netUrl": {
-    "ip": "https://api.klynf.com/asg/remote.do",
+    "base": " https://241.qcread.cn/asg/",
+    "base1": "https://api.klynf.com/asg/",
+    "ip": "remote.do",
     "hive": "https://log.klynf.com/h5_stand_final_log.php",
-    "ipua": "https://api.klynf.com/asg/cacheua.do"
+    "ipua": "cacheua.do"
   }
 }

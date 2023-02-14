@@ -30,8 +30,9 @@
     "channelCode": "WFEB00001"
   },
   "netUrl": {
-    "ip": "https://api.novelread.com/webfic/ap001/remote",
+    "base": "https://api.novelread.com/webfic/ap001/",
+    "ip": "remote",
     "hive": "https://log.novelread.com/h5_stand_final_log.php",
-    "ipua": "https://api.novelread.com/webfic/ap001/cache/ua"
+    "ipua": "cache/ua"
   }
 }

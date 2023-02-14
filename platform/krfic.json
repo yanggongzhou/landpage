@@ -30,8 +30,9 @@
     "channelCode": "WFEB00001"
   },
   "netUrl": {
-    "ip": "https://api.krfic.com/krfic/ap001/remote",
+    "base": "https://api.krfic.com/krfic/ap001/",
+    "ip": "remote",
     "hive": "https://log.krfic.com/h5_stand_final_log.php",
-    "ipua": "https://api.krfic.com/krfic/ap001/cache/ua"
+    "ipua": "cache/ua"
   }
 }

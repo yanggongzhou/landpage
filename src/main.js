@@ -23,7 +23,7 @@ const onDownload = throttle((e) => {
   }
   let downloadUrl = '';
   if (isIos) {
-    if (PlatformConfig.id === '5') {
+    if (PlatformConfig.id === '5' || PlatformConfig.id === '4') { // xsydb ios webfic
       downloadUrl = PlatformConfig.ios.deeplink + getCopyText()
     } else {
       downloadUrl = PlatformConfig.ios.shop;
