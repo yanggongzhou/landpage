@@ -19,13 +19,11 @@ export const getAdjustParams = () => {
   const utm_content = GetQueryString("utm_content") || '0';
   const utm_campaign = GetQueryString("utm_campaign") || '0';
   const campaignList = utm_campaign !== "0" ? utm_campaign.split("_") : [0, 0, 0, 0, 0, 0, 0, 0, 0];
-  let channelCode;
+  let channelCode = isIos ? ios.channelCode : android.channelCode;
   let token = adjustObj.token;
   if (utm_campaign && utm_campaign !== "0" && utm_campaign !== "{{campaign.name}}") {
     channelCode = (enter_script === '3' || PlatformConfig.id === '8') ? campaignList[ 2 ] : campaignList[1];
     token = (enter_script === '3' || PlatformConfig.id === '8') ? campaignList[ 4 ] : campaignList[3];
-  } else {
-    channelCode = isIos ? ios.channelCode : android.channelCode;
   }
   // utm_campaign=__CAMPAIGN_NAME__&utm_content=__CAMPAIGN_ID__
   // replaceId 是智投后台配置默认bookId
@@ -43,7 +41,7 @@ export const getAdjustParams = () => {
     h5uid: getUserLandId(),
     token: token,
     bid: bookId,
-    channelCode: channelCode || isIos ? ios.channelCode : android.channelCode,
+    channelCode: channelCode || (isIos ? ios.channelCode : android.channelCode),
     cid: window.adjustObj.cid || adjustObj.cid,
     shareCode: adjustObj.shareCode,
     url: window.location.href,
