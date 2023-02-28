@@ -22,7 +22,7 @@ export function GetQueryString(name) {
 
 // 判断安卓ios
 const u = navigator.userAgent;
-export const isIos = (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) || (!!u.match(/iPhone|mac|iPod|iPad|ios/i));
+export const isIos = (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) || (!!u.match(/iPhone|iPod|iPad|ios/i));
 export const isAndroid = (!!u.match(/AppleWebKit.*Mobile.*/)) && (u.indexOf('Android') > -1 || u.indexOf('Adr') > -1);
 
 export function compile(code) {

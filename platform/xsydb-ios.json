@@ -31,7 +31,6 @@
     "channelCode": "WFEB00001"
   },
   "netUrl": {
-    "base1": " https://241.qcread.cn/asg/",
     "base": "https://api.klynf.com/asg/",
     "ip": "remote.do",
     "hive": "https://log.klynf.com/h5_stand_final_log.php",
