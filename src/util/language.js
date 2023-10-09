@@ -11,13 +11,13 @@ const languagePack = {
     "ko": "풀버전 보기",
   },
   ">>> Tap for more exciting contents": {
-    "cn": ">>> 點擊繼續閱讀精彩內容",
-    "en": ">>> Tap for more exciting contents",
-    "es": ">>> Toca para ver más contenido emocionante",
-    "in": ">>> Ketuk untuk konten yang lebih menarik",
-    "tl": ">>> I-tap para sa higit pang kapana-panabik na content",
-    "th": ">>> กดเพื่อเนื้อหาที่น่าสนใจเพิ่มเติม",
-    "ko": ">>> 더 많은 흥미로운 콘텐츠를 보려면 탭하세요",
+    "cn": ">>點擊繼續閱讀精彩內容<<",
+    "en": ">>Tap for more exciting contents<<",
+    "es": ">>Toca para ver más contenido emocionante<<",
+    "in": ">>Ketuk untuk konten yang lebih menarik<<",
+    "tl": ">>I-tap para sa higit pang kapana-panabik na content<<",
+    "th": ">>กดเพื่อเนื้อหาที่น่าสนใจเพิ่มเติม<<",
+    "ko": ">>더 많은 흥미로운 콘텐츠를 보려면 탭하세요<<",
   },
   "Tap to be redirected, if fails you can download the app and search for number: xxxx to continue reading": {
     "cn": "點擊進入應用，失敗時可下載APP繼續閱讀 <br/>下載APP在書城搜索書號: xxxx 就可以找到後續內容哦",
@@ -44,7 +44,7 @@ export function languageSwitching() {
   })
   const downloadpDom = document.querySelector('.downloadp');
   if (PlatformConfig.logParam.bline === 'ft') {
-    document.querySelector('.downloadText').innerText = ">>> 點擊繼續閱讀精彩內容"
+    document.querySelector('.downloadText').innerText = ">>點擊繼續閱讀精彩內容<<"
   }
   if (!bookNo) {
     downloadpDom.setAttribute('style', 'display: none')

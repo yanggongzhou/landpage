@@ -2,7 +2,6 @@ import { compile, GetQueryString, isAndroid, isIos, randomString } from './other
 import { getCookie } from "./cookie";
 
 const { logParam = {}, adjustObj, clientId, ios, android } = PlatformConfig;
-const log_id = randomString();
 
 export const getUserLandId = () => {
   const userlandId = window.localStorage.getItem('USER_LANDPID');
@@ -21,32 +20,27 @@ export const getAdjustParams = () => {
   const campaignList = utm_campaign !== "0" ? utm_campaign.split("_") : [0, 0, 0, 0, 0, 0, 0, 0, 0];
   let channelCode = isIos ? ios.channelCode : android.channelCode;
   let token = adjustObj.token;
-  if (utm_campaign && utm_campaign !== "0" && utm_campaign !== "{{campaign.name}}") {
+  let bookId = replaceId;
+
+  if (utm_campaign !== "0" && utm_campaign !== "{{campaign.name}}" && utm_campaign !== '__CAMPAIGN_NAME__') {
     channelCode = (enter_script === '3' || PlatformConfig.id === '8') ? campaignList[ 2 ] : campaignList[1];
     token = (enter_script === '3' || PlatformConfig.id === '8') ? campaignList[ 4 ] : campaignList[3];
-  }
-  // utm_campaign=__CAMPAIGN_NAME__&utm_content=__CAMPAIGN_ID__
-  // replaceId 是智投后台配置默认bookId
-  let bookId = ((enter_script === '3' || PlatformConfig.id ==='8') ? campaignList[ 3 ] : campaignList[2]) || replaceId;
-  if (utm_campaign === '__CAMPAIGN_NAME__') {
-    bookId = replaceId;
-    token = adjustObj.token;
-    channelCode = isIos ? ios.channelCode : android.channelCode;
+    bookId = ((enter_script === '3' || PlatformConfig.id ==='8') ? campaignList[ 3 ] : campaignList[2]);
   }
 
   const res = {
     ip: window.sessionStorage.getItem('DEVICE_IP') || "0.0.0.0",
     sex: model_sex,
-    log_id,
     h5uid: getUserLandId(),
-    token: token,
-    bid: bookId,
+    token: token || adjustObj.token,
+    bid: bookId || replaceId,
     channelCode: channelCode || (isIos ? ios.channelCode : android.channelCode),
     cid: window.adjustObj.cid || adjustObj.cid,
     shareCode: adjustObj.shareCode,
     url: window.location.href,
     fbp: getCookie("_fbp"),
     fbc: getCookie("_fbc") || `fb.1.${new Date().getTime()}.${GetQueryString('fbclid') || '0'}`,
+    ttp: getCookie("_ttp"),
     campaign_id: utm_content,
     campaign_name: utm_campaign,
     ua: navigator.userAgent,

@@ -1,5 +1,4 @@
 import { netFtIPUA, netHiveLog, netIP, netIPUA } from "./util/clientLog";
-import copyTxt from "./util/clipborad";
 import './index.scss';
 import { isIos } from "./util/other";
 import { addFingerprint } from "./util/fingerprint";
@@ -7,6 +6,7 @@ import getChapterInfo from "./util/getChapterInfo";
 import { throttle } from "./util/throttle-debounce";
 import { languageSwitching } from "./util/language";
 import { getCopyText } from "./util/logParams";
+import copyText from "./util/clipborad";
 // 获取IP
 netIP();
 // 曝光
@@ -32,11 +32,13 @@ const onDownload = throttle((e) => {
     downloadUrl = PlatformConfig.android.shop
   }
 
-  copyTxt(e.target.className, () => {
+  copyText(() => {
     window.location.href = downloadUrl
     netHiveLog( `findBug_${PlatformConfig.logId}_successjump`, { action: 2 })
   });
+
   netHiveLog( `luodiyelogClick_click_${PlatformConfig.logId}_${domName}`, { action: 2 })
+
   try {
     if(enter_script === '3'){
       ttq.track('ClickButton')
@@ -46,14 +48,13 @@ const onDownload = throttle((e) => {
   } catch (e) {}
 }, 500)
 
-document.title = document.querySelector(".imgTitle").textContent || PlatformConfig.name
+document.title = document.querySelector(".h1Title").textContent || PlatformConfig.name
 languageSwitching(); // 设置语言
 addFingerprint(); // 指纹
 // 设置主题色
 document.querySelector('.downloadText').setAttribute('style', `color: ${PlatformConfig.color}`)
-document.querySelector('.imgTitle').setAttribute('style', `color: ${PlatformConfig.color}`)
 // 下载按钮
-const downloadDomArr = document.querySelectorAll(".downloadBtn, .downloadText, .handImg, .bookName, .imgTitle, .topImg, .topName, .h1Title")
+const downloadDomArr = document.querySelectorAll(".downloadBtn, .downloadText, .bookName, .topImg, .h1Title")
 for (let i = 0; i < downloadDomArr.length; i ++) {
   downloadDomArr[i].onclick = onDownload;
 }

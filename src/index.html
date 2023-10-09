@@ -1,24 +1,20 @@
-<article class="container">
+<div class="img-box">
+  <img class="topImg" src="{{land_info.top_img}}" alt="" data-name="TopImg">
+</div>
+<div class="container">
   <h1 class="h1Title" data-name="Title">{{land_info.book_title}}</h1>
-  <figure class="img-box">
-    <img class="topImg" src="{{land_info.top_img}}" alt="" data-name="TopImg">
-    <figcaption class="imgTitle" data-name="TopName">{{land_info.bookName}}</figcaption>
-  </figure>
   <section class="intro">{{land_info.book_content}}</section>
   <section class="chapter-id" style="display: none;">
     {{land_info.chapter_id}}
   </section>
-  <div class="footerTitleBox">
+  <div class="footerBox">
     <div class="footerTitle">
       <span></span>
       <div class="bookName" data-name="BotName">{{land_info.bookName}}</div>
     </div>
+    <div class="downloadText" data-name="Text">
+      >>Tap for More Exciting Contents<<
+    </div>
   </div>
-  <div class="footerTip">
-    <a class="downloadText" data-name="Text">
-      >>> Tap for More Exciting Contents
-    </a>
-    <p class="downloadp"></p>
-    <img class="handImg" data-name="Hand" src="data:image/png;base64,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" alt="">
-  </div>
-</article>
+  <p class="downloadp"></p>
+</div>

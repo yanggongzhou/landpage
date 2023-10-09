@@ -10,11 +10,10 @@
   {{land_info.facebook_javascript}}
 </head>
 <body>
-<div id="app">
+<div id="app" onselectstart="return false;">
   <%= require('./index.html').default %>
   <%= require('./component/downloadButton.html').default %>
 </div>
-  <%= htmlWebpackPlugin.options.script_clipboard %>
   <%= process.env.NODE_ENV === 'development' ? htmlWebpackPlugin.options.script_vconsole : '' %>
 </body>
 </html>

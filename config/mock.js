@@ -22,9 +22,9 @@ module.exports = `<script type="text/javascript">
   window.addEventListener('load', () => {
     document.querySelector('.topImg').setAttribute('src', '${land_info.top_img}');
     document.querySelector('.intro').innerHTML = ${JSON.stringify(book_content)};
-    document.querySelector('.h1Title').innerText = '${land_info.book_title}'
-    document.querySelector('.imgTitle').innerText = '${land_info.bookName}'
+    document.querySelector('.h1Title').innerText = '${land_info.bookName}'
     document.querySelector('.bookName').innerText = '${land_info.bookName}'
+    document.querySelector('.downloadp').innerHTML = '點擊進入應用，失敗時可下載APP繼續閱讀 <br/>下載APP在書城搜索書號: <span class="biaoji">' + '{{land_info.bookNo}}' + '</span> 就可以找到後續內容哦';
     document.querySelector('.downloadBtn').setAttribute('style', 'background: ${land_info.btn_background}')
   })
 </script>`
