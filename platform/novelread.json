@@ -21,16 +21,16 @@
   "clientId": "nrb_",
   "ios": {
     "shop": "https://apps.apple.com/us/app/novelread/id1611876110",
-    "pname": "",
+    "pname": "com.novelread.novel",
     "channelCode": "WFEB00001"
   },
   "android": {
     "shop": "https://play.google.com/store/apps/details?id=com.booksource.novelread",
-    "pname": "",
+    "pname": "com.novelread.novel",
     "channelCode": "WFEB00001"
   },
   "netUrl": {
-    "base": "https://api.novelread.com/webfic/ap001/",
+    "base": "https://api.novelread.com/novelread/ap001/",
     "ip": "remote",
     "hive": "https://log.novelread.com/h5_stand_final_log.php",
     "ipua": "cache/ua"

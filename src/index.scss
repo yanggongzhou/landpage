@@ -3,10 +3,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
+  //user-select: none;
+  //-webkit-user-select: none;
+  //-ms-user-select: none;
+  //-moz-user-select: none;
 }
 
 html {
@@ -148,7 +148,7 @@ body {
   width: .32rem;
   height: .32rem;
   margin-right: .08rem;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAURJREFUOE/Vk8FKwzAYx7+kVZsUayco7uKheBj4Cj6F1wW8eN9V9gAT9Q3cSRDxQYZnFbzIRA+CAy/CdDVNskjatd1araIncwmB/H/5f1/+H4I/LpTqX33Wwo5sA+GriEpANAKgAhARgMxORYiJPLO6V7vTb2aAkcfeNRULRojIp4AYaM/zQLqyPndwd2FAGeDNY9q8BCSC1EFyzhzETiyLN8Y11bM6/ZUCoKmNEGIHuahQRhWA6eRy7qAojkuweEPXVA+XHUwA3/WgCvDTHnzh4N/3YOQxiYg8GVM+wK4EcCJId3AF4CSZyrbVofaj+/IvLLIbd3i6GQbbT0CitUl8i3Ee2MfXddXeeC4HaYk9YiS3yMv5Q9V86Vawrl18iTv95Zkkhn5zRzviCBFJwc3TCGYups6ICo6J2kP7t90ZwG+n+gMxD+8Rj26RqwAAAABJRU5ErkJggg==) no-repeat;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAs9JREFUWEftl79rFEEUx9+bnbf5aYooJNhodcHKWAgq+A8oeBaCCub8AxTSCCdiEZIU2iUYFdKnkGv0CNjZWklCJBqjZyEGFIKpLonx3huZ3du7/REv2WwgFrlqbuZ232e+78277yAc8AcPOD5sC1A9duuKUjxsiE+D5qNIDEACSALQGPtzoBma63YsDCTfkGRWqeooTi+vttpkAmC9pzBsHJ6wgbyAXgA/cBMgAGIAbcFC30OQDskcri6cxRLwvyCSAN2FFUN8PBwQNQO4FiYIFlWkuR6FtMBGwQV6+v5tCoAhMSQY7MoD0UkFGmqEoPy52G8dyeupxTIXc3cUmV4c/zwWhkkoUO0eMpF8BzmOKdAIFllPpstxJI9Ti2W5n/sImgfUeEXtAFAwvvz1Igsp4IPZ+bDUAl4KYjsPnndczOPkQlmKuSVDPOCMVyKbbqFA7KX1INGCixZjpG7qGwgU4GJuCXYPEOwwesyiAepHMnQKtltvpGDPCkTO+c59IJ6KMIBVQO02BfvRB2y6sgN4Rbj3PuC4ksdJ7xQsGb3XIszQB8JFiGlS0Gw09SOZvQ/sVoHDPmBb8WEfCP2jZfADh33A1tKB9gEk3mLN59wnH+ZSdMKCQeIN1Hy3Xf2eBeiuQt/PpKPqj0/9AOiLzXXQFk6/+2NnU/kBJHnVuTZz1T64efLanCEetOa0aUji3tA3p3E/oMjMq+cLZ+x7UvkBJHnRuTZzowGga4NJx7OzH0BX5p1nPkAqBRTJ6461mUv7eWmRYm4FXe7HsYrT0hOuHxn6CtqcQM0P29tqE/i9tJEFxIyAguqpe6L4sXJ5GccqAy0BNntuXxan9tIQa9RcA1d+ebbcrdeAVwv+WDUuIcElJqiDsHGVLtDchSQG2+Q6jn4ptQSwi+u9N8+jNiNActEQd2S5FyDJFtobEskDfPTpTVzN//NymiXnaZ/9C9k6JU5gYWdJAAAAAElFTkSuQmCC) no-repeat;
   background-size: cover
 }
 

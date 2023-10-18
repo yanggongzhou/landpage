@@ -20,6 +20,7 @@
   },
   "clientId": "ftb_",
   "ios": {
+    "deeplink":"https://api.dzhwread.com/open?clipboard=",
     "shop": "https://apps.apple.com/tw/app/id1450779570",
     "pname": "com.zqzol.quanbenxiaoshuo",
     "channelCode": "WFEB00001"

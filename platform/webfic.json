@@ -22,12 +22,12 @@
   "ios": {
     "shop": "https://apps.apple.com/us/app/id1517946671",
     "deeplink": "https://sapi.webfic.com/open?clipboard=",
-    "pname": "",
+    "pname": "com.ywwebfic.webficnovel",
     "channelCode": "WFEB00001"
   },
   "android": {
     "shop": "https://play.google.com/store/apps/details?id=com.webfic.novel",
-    "pname": "",
+    "pname": "com.webfic.novel",
     "channelCode": "WFEB00001"
   },
   "netUrl": {

@@ -35,7 +35,7 @@ const copyText = (fn) => {
     navigator.clipboard.writeText(text)
       .catch((e) => {
         console.error("navigator.clipboard", e)
-        copyExecCommand()
+        copyExecCommand(text)
       }).finally(() => { fn && fn() })
   } else {
     copyExecCommand(text)
