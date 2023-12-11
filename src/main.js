@@ -1,6 +1,6 @@
 import { netFtIPUA, netHiveLog, netIP, netIPUA } from "./util/clientLog";
 import './index.scss';
-import { HwTools, isIos } from "./util/other";
+import { isIos } from "./util/other";
 import { addFingerprint } from "./util/fingerprint";
 import getChapterInfo from "./util/getChapterInfo";
 import { throttle } from "./util/throttle-debounce";

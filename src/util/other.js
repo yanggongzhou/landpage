@@ -24,7 +24,9 @@ export function GetQueryString(name) {
 const u = navigator.userAgent;
 export const isIos = (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) || (!!u.match(/iPhone|iPod|iPad|ios/i));
 export const isAndroid = (!!u.match(/AppleWebKit.*Mobile.*/)) && (u.indexOf('Android') > -1 || u.indexOf('Adr') > -1);
-
+/**
+ * 剪切板加密
+ * */
 export function compile(code) {
   code = JSON.stringify(code);
   const res = [];
